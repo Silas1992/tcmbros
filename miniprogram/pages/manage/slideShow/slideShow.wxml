@@ -1,0 +1,27 @@
+
+  <!-- 上传图片 -->
+<view class="uploader">
+  <view class="uploader-text" id="1" bindtap="doUpload">
+    <text>轮播图1</text>
+  </view>
+  <view class="uploader-container" wx:if="{{banner.banner_one}}" >
+    <image class="uploader-image"  src="{{banner.banner_one}}" value="{{banner_one}}" mode="aspectFit" bindtap="previewImg"></image>
+  </view>
+</view>
+<view class="uploader">
+  <view class="uploader-text" id="2" bindtap="doUpload">
+    <text>轮播图2</text>
+  </view>
+  <view class="uploader-container" wx:if="{{banner.banner_two}}" >
+    <image class="uploader-image"  src="{{banner.banner_two}}" value="{{banner_two}}" mode="aspectFit" bindtap="previewImg"></image>
+  </view>
+</view>
+  <!-- 上传图片 -->
+<view class="uploader">
+  <view class="uploader-text" id="3" bindtap="doUpload">
+    <text>轮播图3</text>
+  </view>
+  <view class="uploader-container" wx:if="{{banner.banner_three}}" >
+    <image class="uploader-image"  src="{{banner.banner_three}}" value="{{banner_three}}" mode="aspectFit" bindtap="previewImg"></image>
+  </view>
+</view>

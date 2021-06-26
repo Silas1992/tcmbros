@@ -1,0 +1,18 @@
+<view class="menu">
+  <view class="explain">
+    <view class="title" >订阅消息说明</view>
+    <view class="t1">1.首先必须开启订阅，允许订阅通知并永久不再提醒时，再次订阅将不再提醒</view>
+    <view class="t1">2.当开启订阅后，点击多少次订阅，就能收到多少次用户发来的订阅消息</view>
+    <view class="t1">3.每天手动增加订阅次数，如果当订阅次数少于10时红色提醒商家</view>
+  </view>
+
+  <view class="item">
+    <view class="left">
+      <view class="title">订单支付成功提醒</view>
+      <view class="num">共订阅{{num}}次</view>
+    </view>
+    <view  class="right">
+      <button bindtap="_toSubscribe" style="width:120rpx" type="primary" size="mini">订阅+1</button>
+    </view>
+  </view>
+</view>

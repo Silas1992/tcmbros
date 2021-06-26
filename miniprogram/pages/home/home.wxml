@@ -1,0 +1,53 @@
+<swiper indicator-dots="true" autoplay interval="2000" circular>
+  <swiper-item>
+    <navigator open-type="switchTab" url="../list/list">
+      <image src="{{banner.banner_one}}"/>
+    </navigator>
+  </swiper-item>
+  <swiper-item>
+    <navigator open-type="switchTab" url="../list/list">
+      <image src="{{banner.banner_two}}"/>
+    </navigator>
+  </swiper-item>
+  <swiper-item>
+    <navigator open-type="switchTab" url="../list/list">
+      <image src="{{banner.banner_three}}"/>
+    </navigator>
+  </swiper-item>
+</swiper>
+<view class="start-order" bindtap="toappointment">
+  <view class="orderREC">
+    <image class="img"
+    src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/gotoOrder.png"/>
+    <view class="right">
+      <view class="right_1">开始预约</view>
+      <view class="right_2">提前预约，无需等待</view>
+    </view>
+  </view>
+</view>
+<navigator class="hot"  url="../member/pointsMall/pointsMall">
+  <view class="member_points">
+    <image class="img"
+    src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/points.png"/>
+    <view class="right">
+      <view class="right_1">会员中心</view>
+      <view class="right_2">优享派劵，兑换礼品</view>
+    </view>
+    <view class="icon">
+      兑换
+    </view>
+  </view>
+</navigator>
+
+<view class="hot" bindtap="_toAccounts">
+  <view class="member_points">
+    <image class="img"
+    src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/attention.png"/>
+    <view class="right">
+      <view class="right_1">关注公众号</view>
+      <view class="right_2">更多福利等你解锁</view>
+    </view>
+    <image class="img-2"
+    src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/down.png"></image>
+  </view>
+</view>

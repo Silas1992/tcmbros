@@ -1,0 +1,46 @@
+<!--components/order/order.wxml-->
+<view class="foodItem" wx:for="{{orders}}" wx:key="index">
+  <view class="top">
+    <view class="left">
+      <view class="eat_type" wx:if="{{item.type==2}}">{{item.employee}}</view>
+      <view class="name" wx:if="{{item.type==2}}">{{item.de_type}}</view>
+    </view>
+    <view class="right">
+      <view wx:if="{{item.state == 2}}" class="state">
+        <countDown 
+        target="{{item.targetTime}}"
+        id="{{item._id}}"
+        bindcallback="countDownCallbackFn"
+        clear-timer="{{clearTimer}}"></countDown>
+      </view>
+      <view wx:if="{{item.state == 4}}" class="state">已过期</view>
+      <image wx:if="{{item.state != 0}}" class="img" src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png"></image>
+    </view>
+  </view>
+  <view class="main" bindtap="toDetail" data-id="{{item._id}}">
+    <view class="left" >
+      <view class="box">
+        {{item.note}}
+      </view>
+    </view>
+    <view class="right">
+      <view class="name"></view>
+      <view class = "kind">￥{{item.de_money}}</view>
+    </view>
+  </view>
+  <view class="bottom">
+    <view class="data">{{item.create_time}}</view>
+    <view class="operate">
+      <view wx:if="{{item.state == 1}}" 
+      data-id="{{item._id}}" class="item">已同意</view>
+      <view wx:if="{{item.state == 2 && !isManage}}" 
+      data-id="{{item._id}}" class="item">审核中</view>
+      <view wx:if="{{item.state == 3}}" 
+      data-id="{{item._id}}" class="item">被驳回</view>
+      <view wx:if="{{item.state == 2 && isManage}}" bindtap="cancel" 
+      data-id="{{item._id}}" class="item">驳回</view>
+      <view wx:if="{{item.state == 2 && isManage}}" bindtap="goPay" 
+      data-id="{{item._id}}" class="item">同意</view>
+    </view>
+  </view>
+</view>

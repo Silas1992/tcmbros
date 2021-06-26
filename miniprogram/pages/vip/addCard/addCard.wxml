@@ -1,0 +1,100 @@
+<!--miniprogram/pages/vip/addCard/addCard.wxml-->
+<view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view>
+<form catchsubmit="formSubmit">
+<view class="weui-cells__title">会员卡基本信息</view>
+<view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_active">
+        <view class="weui-cell__hd">
+          <view class="weui-label">名称</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" 
+          value="{{name}}" name="name" placeholder="请输入会员卡名称"/>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_active">
+        <view class="weui-cell__hd">
+          <view class="weui-label">说明</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input"
+          value="{{describle}}" name="describle" placeholder="请输入会员卡说明"/>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_active">
+        <view class="weui-cell__hd">
+            <view class="weui-label">有效期至</view>
+        </view>
+        <view class="weui-cell__bd">
+            <picker mode="date"  start="2015-09-01" end="2055-09-01" bindchange="bindDateChange">
+                <input class="weui-input" 
+                name="endTime" value="{{date}}">{{date}}</input>
+            </picker>
+        </view>
+    </view>
+
+    
+</view>
+
+<view class="weui-cells__title">选择会员卡额度</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+    <view class="weui-cell__hd">
+      <view class="weui-label">会员卡面值</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindValueChange" value="{{valueIndex}}" range="{{values}}">
+        <input value="{{values[valueIndex]}}" name="value"
+        class="weui-select weui-select_in-select-after">{{values[valueIndex]}}</input>
+      </picker>
+    </view>
+  </view>
+</view>
+
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+    <view class="weui-cell__hd">
+      <view class="weui-label">会员卡价格</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindMoneyChange" value="{{moneyIndex}}" range="{{money}}">
+        <input value="{{money[moneyIndex]}}" name="money"
+        class="weui-select weui-select_in-select-after">{{money[moneyIndex]}}</input>
+      </picker>
+    </view>
+  </view>
+</view>
+
+<view class="weui-cells__title">商品上下架</view>
+
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_switch">
+    <view class="weui-cell__bd">是否上架</view>
+    <view class="weui-cell__ft">
+      <switch bindchange="putaway" checked="{{putawaycheck}}" />
+    </view>
+  </view>
+</view>
+
+ <!-- 上传图片 -->
+<view class="uploader">
+  <view class="uploader-text" id="1" bindtap="doUpload">
+    <text>上传缩略图</text>
+  </view>
+  <view class="uploader-container" wx:if="{{imgUrl}}" >
+    <image class="uploader-image"  value="{{imgUrl}}" src="{{imgUrl}}" mode="aspectFit" bindtap="previewImg"></image>
+  </view>
+</view>
+<view class="uploader">
+  <view class="uploader-text" id="2" bindtap="doUpload">
+    <text>上传会员卡</text>
+  </view>
+  <view class="uploader-container" wx:if="{{imageUrl}}" >
+    <image class="uploader-image"  value="{{imageUrl}}" src="{{imageUrl}}" mode="aspectFit" bindtap="previewImg"></image>
+  </view>
+</view>
+
+<view class="weui-btn-area">
+  <button class="weui-btn" type="primary" form-type="submit">确定</button>
+</view>
+</form>

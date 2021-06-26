@@ -1,0 +1,281 @@
+<!--miniprogram/pages/person/person.wxml-->
+<view class="head">
+  <view class="top">
+    <button 
+      class="userinfo-avatar"
+      style="background-image:url({{avatarUrl}})"
+      size="default"
+      bindtap="queryAuthByOpenid"
+    ></button>
+    <view class="member-info">
+      <view class="nickname">
+      <open-data type="userNickName"></open-data>
+      <view class="card-no" wx:if="{{memberInfo.card_no !== 0}}">No.{{memberInfo.card_no}}</view>
+      </view>
+      <view wx:if="{{memberInfo.tel == ''}}" class="tel">您为游客，请点击头像注册</view>
+      <view wx:else class="tel">{{memberInfo.tel}}</view>
+    </view>
+  </view>
+  <view class="save">此卡已为你节省：{{memberInfo.saveValue}}.00元</view>
+  <view class="bottom">
+    <navigator class="item" url="../member/myPoints/myPoints">
+      <view class="title">积分</view>
+      <view class="value">0</view>
+    </navigator>
+    <!-- url="../vip/valueCard/valueCard?cardBalance={{memberInfo.balance}}"-->
+    <navigator class="item-2" url="../vip/valueCard/valueCard?cardBalance={{memberInfo.balance}}">
+      <view class="title">储值卡</view>
+      <view class="value">{{memberInfo.balance}}</view>
+    </navigator> 
+    <navigator class="item" url="../member/myCoupon/myCoupon">
+      <view class="title">优惠劵</view>
+      <view class="value">0</view>
+    </navigator>
+  </view>
+</view>
+
+<view class="person-page">
+  <!-- <view class="menu">
+    <navigator class="item" url="../member/myLevel/myLevel">
+      <view class="top">
+        <image class="icon" src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/member.png"></image>
+        <view class="left">会员等级</view>
+        <image class="right" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
+        </image>
+      </view>
+      <view class="bottom"/>
+    </navigator> -->
+    <!-- <navigator class="item" url="../address/index/address">
+      <view class="top">
+        <image class="icon" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/address.png"></image>
+        <view class="left">地址管理</view>
+        <image class="right" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
+        </image>
+      </view>
+      <view class="bottom"/>
+    </navigator> -->
+    <!-- <navigator class="item" url="../member/pointsMall/pointsMall">
+      <view class="top">
+        <image class="icon" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/pointsmall.png"></image>
+        <view class="left">积分商城</view>
+        <image class="right" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
+        </image>
+      </view>
+      <view class="bottom"/>
+    </navigator> -->
+    <view class="menu">
+    <navigator class="item" wx:if="{{memberInfo.isManage || memberInfo.position == 1}}"  
+    url="../client/recharge/recharge">
+      <view class="top">
+        <image class="icon" src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/recharge.png"></image>
+        <view class="left">充值记录</view>
+        <image class="right" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
+        </image>
+      </view>
+      <view class="bottom"/>
+    </navigator>
+    <navigator class="item" wx:if="{{memberInfo.isManage || memberInfo.position == 1}}"  
+    url="../client/consume/consume">
+      <view class="top">
+        <image class="icon" src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/vir-record.png"></image>
+        <view class="left">消费记录</view>
+        <image class="right" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
+        </image>
+      </view>
+      <view class="bottom"/>
+    </navigator>
+    <navigator class="item" wx:if="{{memberInfo.isManage || memberInfo.position == 1}}"  
+    bindtap="toappointment">
+      <view class="top">
+        <image class="icon" src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/appointment.png"></image>
+        <view class="left">我的预约</view>
+        <image class="right" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
+        </image>
+      </view>
+      <view class="bottom"/>
+    </navigator>
+    <navigator class="item" wx:if="{{memberInfo.isManage || memberInfo.position == 1}}"  
+    bindtap="toappointment">
+      <view class="top">
+        <image class="icon" src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/overdue.png"></image>
+        <view class="left">过期预约</view>
+        <image class="right" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
+        </image>
+      </view>
+      <view class="bottom"/>
+    </navigator>
+    <navigator wx:if="{{memberInfo.isManage || memberInfo.position == 1}}"  
+    class="item" url="../businessMode/invitingOther/invitingOther">
+      <view class="top">
+        <image class="icon" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/inviting.png"></image>
+        <view class="left">邀请有礼</view>
+        <image class="right" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
+        </image>
+      </view>
+      <view class="bottom"/>
+    </navigator>
+    <!-- <navigator class="item" 
+    wx:if="{{memberInfo.isManage || memberInfo.position == 3}}" 
+    url="../manage/subscribeNews/subscribeNews">
+      <view class="top">
+        <image class="icon" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/subscribe.png"></image>
+        <view class="left">订阅消息</view>
+        <image class="right" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
+        </image>
+      </view>
+      <view class="bottom"/>
+    </navigator> -->
+    <!-- <navigator class="item"
+    wx:if="{{memberInfo.isManage || memberInfo.position == 3}}"  
+    url="../manage/orders/orders">
+      <view class="top">
+        <image class="icon"
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/order-manage.png"></image>
+        <view class="left">订单管理</view>
+        <image class="right" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
+        </image>
+      </view>
+      <view class="bottom"/>
+    </navigator> -->
+    <navigator class="item"
+    wx:if="{{memberInfo.isManage || memberInfo.position == 3}}"  
+    url="../manage/salary/salary">
+      <view class="top">
+        <image class="icon"
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/order-manage.png"></image>
+        <view class="left">工作明细</view>
+        <image class="right" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
+        </image>
+      </view>
+      <view class="bottom"/>
+    </navigator>
+    <navigator class="item"
+    wx:if="{{memberInfo.isManage || memberInfo.position == 3}}"  
+    url="../manage/income/income">
+      <view class="top">
+        <image class="icon"
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/details.png"></image>
+        <view class="left">收益详单</view>
+        <image class="right" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
+        </image>
+      </view>
+      <view class="bottom"/>
+    </navigator>
+    <navigator class="item"
+    wx:if="{{memberInfo.isManage || memberInfo.position == 3}}"  
+    url="../manage/subsidies/subsidies">
+      <view class="top">
+        <image class="icon"
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/statistics.png"></image>
+        <view class="left">补助管理</view>
+        <image class="right" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
+        </image>
+      </view>
+      <view class="bottom"/>
+    </navigator>
+    <navigator class="item"
+    wx:if="{{memberInfo.isManage || memberInfo.position == 3}}"  
+    bindtap="toappointment">
+      <view class="top">
+        <image class="icon"
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/signin.png"></image>
+        <view class="left">打卡签到</view>
+        <image class="right" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
+        </image>
+      </view>
+      <view class="bottom"/>
+    </navigator>
+    <navigator class="item"
+    wx:if="{{memberInfo.isManage || memberInfo.position == 3}}"  
+    bindtap="toappointment">
+      <view class="top">
+        <image class="icon"
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/award.png"></image>
+        <view class="left">奖惩记录</view>
+        <image class="right" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
+        </image>
+      </view>
+      <view class="bottom"/>
+    </navigator>
+    <navigator class="item"
+    wx:if="{{memberInfo.isManage || memberInfo.position == 3}}"  
+    bindtap="toappointment">
+      <view class="top">
+        <image class="icon"
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/notice.png"></image>
+        <view class="left">工作手册</view>
+        <image class="right" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
+        </image>
+      </view>
+      <view class="bottom"/>
+    </navigator>
+    <navigator class="item"
+    wx:if="{{memberInfo.isManage}}"  
+    url="../manage/slideShow/slideShow">
+      <view class="top">
+        <image class="icon"
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/slideshow.png"></image>
+        <view class="left">轮播图管理</view>
+        <image class="right" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
+        </image>
+      </view>
+      <view class="bottom"/>
+    </navigator>
+    <navigator class="item"
+    wx:if="{{memberInfo.isManage}}"  
+    url="../manage/user/user">
+      <view class="top">
+        <image class="icon"
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/set.png"></image>
+        <view class="left">授权管理</view>
+        <image class="right" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
+        </image>
+      </view>
+      <view class="bottom"/>
+    </navigator>
+    <navigator class="item"
+    wx:if="{{memberInfo.isManage}}"  
+    url="../manage/vip/vip">
+      <view class="top">
+        <image class="icon"
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/vip-manage.png"></image>
+        <view class="left">会员管理</view>
+        <image class="right" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
+        </image>
+      </view>
+      <view class="bottom"/>
+    </navigator>
+  </view>
+</view>
+<!-- 需要使用 button 来授权登录 -->
+<!-- <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+<view wx:else>请升级微信版本</view> -->
+<!-- <view class="userinfo-nickname-wrapper">
+      <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
+</view> -->
+
+
+

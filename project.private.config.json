@@ -1,0 +1,77 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
+        },
+        {
+          "name": "首页",
+          "pathName": "pages/home/home",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "个人信息",
+          "pathName": "pages/person/personInfo/personInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "活动管理",
+          "pathName": "pages/manage/activity/activity",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "工资管理",
+          "pathName": "pages/manage/salary/salary",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "收入明细",
+          "pathName": "pages/manage/income/income",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "补助管理",
+          "pathName": "pages/manage/subsidies/subsidies",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "会员充值",
+          "pathName": "pages/manage/vip/vip",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "充值记录",
+          "pathName": "pages/client/recharge/recharge",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "消费记录",
+          "pathName": "pages/client/consume/consume",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

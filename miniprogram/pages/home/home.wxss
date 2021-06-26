@@ -1,0 +1,98 @@
+/* miniprogram/pages/home/home.wxss */
+swiper,swiper image{
+  width:100vw;
+  height:450rpx
+}
+page{
+  background-color: #fff;
+}
+.start-order{
+  margin-top: 20rpx;
+  width: 90%;
+  align-self: center;
+}
+
+.orderREC{
+  background-color: #fff;
+  width: 100%;
+  height: 260rpx;
+  display: flex;
+  align-self: center;
+  margin-top: 20rpx;
+  border-radius: 10rpx;
+  box-shadow:2rpx 2rpx 8rpx 8rpx #eee;
+  justify-content: center;
+  align-items: center;
+}
+.orderREC .img{
+  width: 80rpx;
+  height: 80rpx;
+}
+.orderREC .right{
+  margin-left: 20rpx;
+}
+
+.orderREC .right .right_1{
+  font-weight: bolder;
+  font-size: 40rpx;
+  letter-spacing: 3rpx;
+}
+
+.orderREC .right .right_2{
+  font-size: 22rpx;
+  color: #888;
+  letter-spacing: 2rpx;
+}
+.hot{
+  display: flex;
+  width: 90%;
+  align-self: center;
+  margin-top: 20rpx;
+  height: 150rpx;
+}
+
+.member_points{
+  background-color: #f5f2f2;
+  width: 100%;
+  height: 150rpx;
+  display: flex;
+  align-self: center;
+  border-radius: 10rpx;
+  box-shadow:2rpx 2rpx 2rpx 2rpx #eee;
+  align-items: center;
+}
+
+.member_points .img{
+  margin-left: 80rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.member_points .right{
+  margin-left: 20rpx;
+}
+
+.member_points  .right .right_1{
+  font-weight: bold;
+  font-size: 30rpx;
+  letter-spacing: 3rpx;
+}
+
+.member_points .right .right_2{
+  font-size: 22rpx;
+  color: #888;
+  letter-spacing: 2rpx;
+}
+
+.member_points  .icon{
+  background-color: #fff;
+  border-radius: 10rpx;
+  font-size: 22rpx;
+  padding: 5rpx 30rpx;
+  margin-left: 120rpx;
+}
+.member_points .img-2{
+  width: 40rpx;
+  height: 30rpx;
+  margin-left: 166rpx;
+}

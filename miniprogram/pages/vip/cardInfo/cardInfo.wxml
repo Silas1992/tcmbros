@@ -1,0 +1,19 @@
+
+<view class="card" >
+  <view class="top">
+    <image class="image" src="{{cardInfo.imageUrl}}"></image>
+  </view>
+  <view class="name">{{cardInfo.name}}</view>
+  <view class="describle">{{cardInfo.describle}}</view>
+</view>
+<!-- 点击立即购买 弹窗 -->
+<view animation="{{animationData}}" class="buy_box" wx:if="{{showModalStatus}}">
+  <view class="info">
+    <view class='title'>
+      <view class="name">价格：</view>
+      <view class="price">￥{{cardInfo.money}}</view>
+    </view>
+    <button class="btn" type="primary" 
+    bindtap='selectMycard'> 购买 </button>
+  </view>
+</view>

@@ -1,0 +1,139 @@
+<view class='nav bg-white' style='height:{{navH}}rpx'>
+  <view class="first">
+    <image class="goback" bindtap="goback"
+    src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/go-back.png">
+    </image>
+    <text class="title">储值卡</text>
+    
+  </view>
+  <view class="head" >
+    <view class = "left">
+      <view class = "top">
+        <view class="top-line"></view>
+        <view class="top-line"></view>
+        <view class="top-line"></view>
+      </view>
+      <view class="tt"> 我的余额 </view>
+      <view class="consum-points">{{cardBalance}}</view>
+      <tabs class="tabs" tabs="{{tabs}}" bind:itemChange="handleItemChange"></tabs>
+    </view>
+    <view class="right">
+      <view class = "circle">
+        <image class="img"
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/virtual-card.png"></image>
+      </view>
+      <view class = "bottom">
+        <view class="bottom-line"></view>
+        <view class="bottom-line"></view>
+        <view class="bottom-line"></view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+
+<scroll-view scroll-y="true" style='height:calc(100vh - {{navH}}rpx)' 
+scroll-with-animation="true">
+  <view id="demo1" class="mall-list">
+    <view class="member_card">
+      <view wx:if="{{tabs[0].isActive}}" class="top">
+        <view class="left"></view>
+        <view class="name">记录明细</view>
+      </view>
+
+      <block wx:if="{{tabs[0].isActive}}" wx:key="index">
+        <!-- <view class="item">
+          <view class="left" bindtap="_toCardInfo" id="{{item._id}}">
+            <image class="image" src="{{item.imgUrl}}"></image>
+          </view>
+
+          <view class="right">
+            <view class="head_1">
+              <view class="title">
+                {{item.name}}
+              </view>
+              <view class="icon" wx:if="{{manageid==openid}}">
+                <image class="putaway" wx:if="{{item.status===1}}" id="{{item._id}}" bindtap="toDownStatus"
+                src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/putaway.png"></image>
+                <image class="putaway" wx:if="{{item.status===2}}" id="{{item._id}}" bindtap="toPutStatus"
+                src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/soldout.png"></image>
+                <image class="delete" wx:if="{{item.status===1}}" id="{{item._id}}" bindtap="toDelete"
+                src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/delete_HL.png"></image>
+                <image class="delete" wx:if="{{item.status===2}}" id="{{item._id}}" bindtap="toDelete"
+                src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/delete.png"></image>
+              </view>
+            </view>
+            <view class="describle">{{item.describle}}</view>
+            <view class="bottom" bindtap="_toCardInfo" id="{{item._id}}">
+              <view class="type">经典系列</view>
+              <view class="price">￥{{item.money}}</view>
+            </view>
+          </view>
+        </view> -->
+        <pointsLog wx:if="{{cardRecord.length !== 0}}" cardRecord="{{cardRecord}}"></pointsLog>
+        <view style="height:40rpx"></view>
+      </block>
+      <!-- <block wx:if="{{tabs[0].isActive && manageid==openid}}" >
+        <view class="item_1">
+          <image class="icon" bindtap="toAdd"
+          src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/add.png"></image>
+        </view>
+
+        <view style="height:60rpx"></view>
+      </block> -->
+    
+    
+
+      <!-- 我的星礼卡模块 -->
+      <view class="module_2" wx:if="{{tabs[1].isActive && haveCard}}">
+      
+        <view class="head">
+          <view class="price">￥{{myCard.value}}</view>
+          <view class="name">{{myCard.name}}</view>
+        </view>
+
+        <view class="person_card">
+          <image class="iamge" 
+          src="{{myCard.imageUrl}}"></image>
+        </view>
+
+        <view class="bottom_1">
+          <view class="card_no">{{myCard.card_no}}</view>
+          <view class="indate">有效期至{{myCard.end_time}}</view>
+        </view>
+
+        <view class="bottom_2" wx:if="{{haveRecord}}">
+          <view class="consum_record">
+            <image src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/vir-record.png" class="icon"></image>
+            <view class="title">消费记录</view>
+          </view>
+          <pointsLog cardRecord="{{cardRecord}}"></pointsLog>
+        </view>
+
+        <view style="height:60rpx">
+        
+        </view>
+      </view>
+
+      <view class="module_2"  wx:if="{{tabs[1].isActive && (!haveCard)}}">
+        <!-- <view class="value-card" wx:if="{{!haveRecord}}">
+          <image class="image" 
+          src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/background-icon/nocard.png"></image>
+          <view class="explain">暂无储值卡</view>
+        </view> -->
+
+        <view class="bottom_2" wx:if="{{haveRecord}}">
+          <view class="consum_record">
+            <image src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/vir-record.png" class="icon"></image>
+            <view class="title">消费记录</view>
+          </view>
+          <pointsLog wx:if="{{cardRecord.length !== 0}}" cardRecord="{{cardRecord}}"></pointsLog>
+        </view>
+        <view style="height:60rpx"></view>
+      </view>
+    </view>
+  </view>
+
+
+</scroll-view>

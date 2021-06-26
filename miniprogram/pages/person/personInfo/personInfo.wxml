@@ -1,0 +1,34 @@
+<view class="item">
+  <view class="head">
+    <image class="image"  size="140rpx"
+    style="background-image:url({{member.avatarUrl}})"></image>
+  
+  </view>
+  <view class="line">
+    <view class="t1">昵称</view>
+    <view class="t2">{{member.nickName}}</view>
+  </view>
+
+  <view class="line">
+    <view class="t1">性别</view>
+    <view wx:if="{{member.sex==1}}" class="t2">男</view>
+    <view wx:if="{{member.sex==0}}" class="t2">女</view>
+  </view>
+
+  <view class="line">
+    <view class="t1">手机号</view>
+    <view class="t2">{{phone}}</view>
+    <button style="padding: 0px 0px;background-color:#ffffff;min-height:0px" 
+    open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="t3">更新手机号</button>
+  </view>
+
+  <view class="line">
+    <view class="t1">姓名</view>
+    <input style="height:100rpx;width:300rpx" 
+           bindinput="bindKeyInput" placeholder="输入您的姓名" 
+           class="t2" value="{{member.name}}" type="text"></input>
+    <button wx:if="{{name !== '' && isHave}}" style="padding: 0px 0px;background-color:#ffffff;min-height:0px" 
+    bindtap="updateName" class="t3">更新姓名</button>
+  </view>
+
+</view>

@@ -1,0 +1,6 @@
+<!--miniprogram/pages/businessMode/invitingOther/invitingOther.wxml-->
+<view class="value-card">
+  <image class="image" 
+  src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/background-icon/nothing.png"></image>
+  <view class="explain">活动已结束</view>
+</view>

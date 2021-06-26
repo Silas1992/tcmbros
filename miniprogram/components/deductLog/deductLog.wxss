@@ -1,0 +1,85 @@
+
+.log{
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  align-self: center;
+  margin-top: 20rpx;
+  border-radius: 10rpx;
+  box-shadow:2rpx 2rpx 8rpx 8rpx #eee;
+  flex-direction: column;
+}
+.log .head{
+  display: flex;
+  border-bottom: 1rpx solid #eee;
+  height: 80rpx;
+  position: relative;
+  z-index: 10;
+}
+.log .head .icon{
+  height: 30rpx;
+  width: 6rpx;
+  background-color: goldenrod;
+  border-radius: 0 3rpx 3rpx 0 ;
+  align-self: center;
+  margin-left: 20rpx;
+}
+.log .head .time{
+  font-size: 28rpx;
+  align-self: center;
+  margin-left: 10rpx;
+}
+.log .head .total{
+  display: inline;
+  margin-left: 300rpx;
+  align-self: center;
+  color: red;
+  position: absolute;
+  right: 20rpx;
+}
+.log .yearItem{
+  display: flex;
+  flex-direction: column;
+}
+.log .yearItem .item{
+  width: 94%;
+  align-self: center;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  height: 160rpx;
+  position: relative;
+  z-index: 2;
+}
+.log .yearItem .item .left{
+  height: 120rpx;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.log .yearItem .item .left .type{
+  font-size: 30rpx;
+}
+.log .yearItem .item .left .creat-time{
+  font-size: 24rpx;
+  color: #888888;
+}
+.log .yearItem .item .change-points{
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 160rpx;
+  right: 0;
+  position: absolute;
+}
+.log .yearItem .item .member{
+  color:goldenrod;
+}
+.log .yearItem .item .money{
+  color: red;
+}
+
+
+

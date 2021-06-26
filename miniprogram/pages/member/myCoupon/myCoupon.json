@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "cou":"../../../components/coupon/coupon"
+  },
+  "navigationBarTitleText": "我的优惠券",
+  "navigationBarBackgroundColor":"#fff"
+}

@@ -1,0 +1,18 @@
+<!--miniprogram/pages/manage/salary/salary.wxml-->
+<view class="member_card">
+  <view class="module_2">
+    <view class="value-card" wx:if="{{!haveRecord}}">
+      <image class="image" 
+      src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/background-icon/nocard.png"></image>
+      <view class="explain">暂无收益记录，赶快努力赚钱~</view>
+    </view>
+
+    <view class="bottom_2" wx:if="{{haveRecord}}">
+      <view class="consum_record">
+        <image src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/vir-record.png" class="icon"></image>
+        <view class="title">我的工作明细</view>
+      </view>
+      <deductLog wx:if="{{cardRecord.length !== 0}}" cardRecord="{{cardRecord}}"></deductLog>
+    </view>
+  </view>
+</view>

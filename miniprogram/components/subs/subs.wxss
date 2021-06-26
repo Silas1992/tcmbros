@@ -1,0 +1,148 @@
+/* components/order/order.wxss */
+.foodItem{
+  width: 100%;
+  background-color:#fff;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15rpx;
+}
+.foodItem .top{
+  display: flex;
+  height: 80rpx;
+  width: 92%;
+  align-self: center;
+  position: relative;
+  z-index: 10;
+}
+.foodItem .top .left{
+  display: flex;
+  height: 100%;
+}
+.foodItem .top .left .eat_type{
+  width: 70rpx;
+  height: 36rpx;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  background-color: goldenrod;
+  line-height: 36rpx;
+  color: #fff;
+  font-size: 26rpx;
+  border: 1rpx solid goldenrod;
+  border-radius: 4rpx;
+}
+.foodItem .top .left .name{
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  align-self: center;
+}
+.foodItem .top .right{
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-self: center;
+} 
+.foodItem .top .right .state{
+  font-size: 26rpx;
+  color: #888;
+}
+.foodItem .top .right .img{
+  align-self: center;
+  width: 30rpx;
+  height: 30rpx;
+}
+.foodItem .main{
+  display: flex;
+  height: 180rpx;
+  width: 92%;
+  align-self: center;
+  position: relative;
+  z-index: 10;
+}
+.foodItem .main .left{
+  display: flex;
+  align-content: center;
+  flex:1;
+  width: 260rpx;
+  overflow: hidden;
+}
+.foodItem .main .left .box{
+  margin-top: 20rpx;
+  text-overflow: ellipsis;
+  margin-right: 80rpx;
+  display: flex;
+}
+.foodItem .main .left .ellipse{
+  width: 130rpx;
+  height: 130rpx;
+  display: flex;
+  justify-content: center;
+  line-height: 110rpx;
+  margin-left: 10rpx;
+  letter-spacing: 10rpx;
+  font-size: 40rpx;
+  color: #888;
+}
+.foodItem .main .left .img{
+  display: block;
+  margin-left: 10rpx;
+  align-self: center;
+  width: 130rpx;
+  height: 130rpx;
+}
+.foodItem .main .right{
+  align-self: center;
+  margin-left: 25rpx;
+  display: flex;
+  flex-direction: column;
+  height: 130rpx;
+  position: relative;
+  z-index: 20;
+}
+.foodItem .main .right .name{
+  letter-spacing: 1rpx;
+  text-indent: 0rpx;
+  font-size: 32rpx;
+  height: 60%;
+  line-height: 39rpx;
+}
+.foodItem .main .right .kind{
+  letter-spacing: 1rpx;
+  margin-top: 85rpx;
+  position: absolute;
+  right: 10rpx;
+  font-size: 36rpx;
+  color:red;
+}
+.foodItem .bottom{
+  display: flex;
+  height: 80rpx;
+  width: 92%;
+  align-self: center;
+  position: relative;
+  z-index: 10;
+}
+.foodItem .bottom .data{
+  align-self: center;
+  font-size: 26rpx;
+  color: #888;
+}
+.foodItem .bottom .operate{
+  position: absolute;
+  right: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.foodItem .bottom .operate .item{
+  margin-left: 20rpx;
+  height: 66rpx;
+  width: 180rpx;
+  line-height: 66rpx;
+  background-color: #fff;
+  border:1rpx solid goldenrod;
+  color: goldenrod;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+}

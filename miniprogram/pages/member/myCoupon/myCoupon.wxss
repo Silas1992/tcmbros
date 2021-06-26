@@ -1,0 +1,10 @@
+/* miniprogram/pages/member/myCoupon/myCoupon.wxss */
+
+.my{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+.my-coupon{
+  align-self: center;
+}

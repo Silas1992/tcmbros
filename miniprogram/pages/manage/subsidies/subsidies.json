@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "tabs":"../../../components/tabs/tabs",
+    "order":"../../../components/subs/subs"
+  },
+  "navigationStyle":"custom"
+}

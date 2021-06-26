@@ -1,0 +1,7 @@
+<!--miniprogram/pages/member/myCoupon/myCoupon.wxml-->
+<view class="my">
+  <view class="my-coupon">
+    <cou></cou>
+    <cou></cou>
+  </view>
+</view>

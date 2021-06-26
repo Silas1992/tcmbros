@@ -1,0 +1,24 @@
+ <view class="line">
+    <navigator url="../user/userSetting/userSetting" class="manage">
+    管理
+    <image class="imgs"
+    src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/setting.png"></image>
+    </navigator>
+  </view>
+<view class="item" wx:for="{{userInfo}}" wx:key="index">
+ 
+  <view class="line">
+    <image class="image"  size="100rpx" wx:if="{{item.avatarUrl == undefined || item.avatarUrl == ''}}"
+    style="background-image:url({{avatarUrl}})"></image>
+    <image class="image"  size="100rpx" wx:if="{{item.avatarUrl != ''}}"
+    style="background-image:url({{item.avatarUrl}})"></image>
+    <view class="t2">{{item.name}}</view>
+    <button wx:if="{{item.position == 1}}"
+    style="padding: 0px 0px;background-color:#ffffff;min-height:0px" 
+    id="{{item._openid}}" data-_id="{{item._id}}" bindtap="addManage" class="t3">设为管理员</button>
+    <button wx:if="{{item.position == 3}}"
+    style="padding: 0px 0px;background-color:goldenrod;min-height:0px;color:#fff" 
+    id="{{item._openid}}" data-_id="{{item._id}}" bindtap="deleteManage" class="t3">取消管理员</button>
+  </view>
+
+</view>

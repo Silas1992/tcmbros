@@ -1,0 +1,32 @@
+<view class="cu-bar bg-white search fixed" >
+  <view class="search-form round" >
+    <text class="cuIcon-search"></text>
+    <input name="tel" value = "{{tel}}" bindinput="bindKeyInput"
+    type="text" placeholder="请输入电话号码" confirm-type="search"></input>
+  </view>
+  <view class="action" >
+    <button bindtap="searchMember" class="cu-btn bg-gradual-green shadow-blur round">搜索</button>
+  </view>
+</view>
+<view style="height:100rpx"></view>
+<view class="item" wx:for="{{userInfo}}" wx:key="index">
+  <form catchsubmit="formSubmit" >
+    <view class="line">
+      <image class="image"  size="100rpx" wx:if="{{item.avatarUrl == ''}}"
+      style="background-image:url({{avatarUrl}})"></image>
+      <image class="image"  size="100rpx" wx:if="{{item.avatarUrl != ''}}"
+      style="background-image:url({{item.avatarUrl}})"></image>
+      <view class="t2">{{item.tel}}</view>
+      <view wx:if="{{item.balance>0}}" class="t3">vip</view>
+      <view class="option">
+        <input class="ss" wx:if="{{item.balance===0}}"
+        value="" name="name" placeholder="0"/>
+        <input class="ss" wx:if="{{item.balance>0}}"
+        value="{{item.balance}}" name="name" placeholder="0"/>
+        <button class="btn" data-_id="{{item._id}}" data-openid="{{item._openid}}"
+        data-name="{{item.name}}" data-tel="{{item.tel}}"
+        type="primary" size="mini" form-type="submit">充值</button>
+      </view>
+    </view>
+  </form>
+</view>

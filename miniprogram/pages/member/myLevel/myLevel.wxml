@@ -1,0 +1,67 @@
+<!--miniprogram/pages/member/myLevel/myLevel.wxml-->
+<view class="mem-level">
+  <view class="head">
+    <image class="image" mode="widthFix"
+    src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/banner/member-level.jpg">
+    </image>
+    <view class="update-time">2020-08-06更新等级</view>
+  </view>
+
+  <view class="body">
+    <view class="upgrade">
+      <view class="title">晋级条件</view>
+      <view class="progress">  
+        <view class="line">
+          <view class="circle-{{level>=0?'2':'1'}}"></view>
+          <view class="gray">
+            <view wx:if="{{level>0}}" class="colours" style="{{level>0?'height:100%':''}}"></view>
+            <view wx:if="{{level==0}}" class="colours" style="height:{{height}}%"></view>
+          </view>  
+        </view>  
+        <view class="line">
+          <view class="circle-{{level>=1?'2':'1'}}"></view>
+          <view class="gray">
+            <view wx:if="{{level>1}}" class="colours" style="{{level>0?'height:100%':''}}"></view>
+            <view wx:if="{{level==1}}" class="colours" style="height:{{height}}%"></view>
+          </view>  
+        </view>  
+        <view class="line">
+          <view class="circle-{{level>=2?'2':'1'}}"></view>
+          <view class="gray">
+            <view wx:if="{{level>2}}" class="colours" style="{{level>0?'height:100%':''}}"></view>
+            <view wx:if="{{level==2}}" class="colours" style="height:{{height}}%"></view>
+          </view>  
+        </view> 
+        <view class="circle-{{level>=3?'2':'1'}}"></view>        
+      </view>
+      <view class="text">
+        <view class="item">
+          <view class="level-name-{{level>=0?'2':'1'}}"></view>
+          <view class="rewards"></view>
+        </view>
+        <view class="item1">
+          <view class="level-name-{{level>=1?'2':'1'}}"></view>
+          <view class="rewards"></view>
+        </view>
+        <view class="item1">
+          <view class="level-name-{{level>=2?'2':'1'}}"></view>
+          <view class="rewards"></view>
+        </view>
+        <view class="item1">
+          <view class="level-name-{{level>=3?'2':'1'}}"></view>
+          <view class="rewards"></view>
+        </view>
+      </view>
+      
+    </view>
+    <!-- <view class="rule">
+      <view class="title">等级规则</view>
+      <view class="a">1.在小程序消费可增加等级经验值；</view>
+      <view class="a">2.经验值达到等级要求后，将会升级并获得等级奖励；</view>
+      <view class="a">3.每个周期结束后，系统将清除当前等级剩余经验值；</view>
+      <view class="a">4.若已满足保留等级条件，则周期结束等级不变；</view>
+      <view class="a">5.若不满足保留等级条件，则周期结束后将会降级。</view>
+    </view> -->
+  
+  </view>
+</view>

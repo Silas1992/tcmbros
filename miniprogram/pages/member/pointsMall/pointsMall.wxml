@@ -1,0 +1,47 @@
+<view class='nav bg-white' style='height:{{navH}}rpx'>
+<view class="first">
+  <image class="goback" bindtap="goback"
+  src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/go-back.png">
+  </image>
+  <text class="title">积分商城</text>
+  
+</view>
+<view class="head" >
+  <view class = "left">
+    <view class = "top">
+      <view class="top-line"></view>
+      <view class="top-line"></view>
+      <view class="top-line"></view>
+    </view>
+    <view class="tt"> 我的积分 </view>
+    <view class="consum-points">0</view>
+    <view class="td">此积分为消费积分，不可用于会员升级，只可用于兑换商品或优惠券</view>
+  </view>
+  <view class="right">
+    <view class = "circle">
+      <image class="img"
+      src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/consum-points.png"></image>
+    </view>
+    <view class = "bottom">
+      <view class="bottom-line"></view>
+      <view class="bottom-line"></view>
+      <view class="bottom-line"></view>
+    </view>
+  </view>
+</view>
+
+</view>
+<scroll-view scroll-y="true" style='height:calc(100vh - {{navH}}rpx)' 
+scroll-with-animation="true">
+<view id="demo1" class="mall-list">
+ <view class="custom-coupon">
+    <view class="top">
+      <view class="left"></view>
+      <view class = "name">积分换券</view>
+    </view>
+
+    <!-- 开始应用优惠券组件 -->
+    <!-- <coupon></coupon> -->
+  </view>
+</view>
+</scroll-view>

@@ -1,0 +1,161 @@
+/* miniprogram/pages/member/pointsMall/pointsMall.wxss */
+page{
+  overflow:hidden
+}
+.nav{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.nav-title{
+  width: 100%;
+  height: 310rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.nav .back{
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px 15px;
+}
+.bg-white{
+  background-color:#fff;
+}
+.bg-gray{
+  background-color: #f7f7f7;
+}
+.overflow{
+  overflow: auto;
+}
+.first{
+  display: block;
+  display: flex;
+  margin-top: 80rpx;
+  
+}
+.first .title{
+  font-weight: 500;
+  font-style: initial;
+  font-size: 32rpx;
+  margin-left: 280rpx;
+}
+.first .goback{
+  width: 33rpx;
+  height: 35rpx;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+}
+.head{
+  margin-top: 20rpx;
+  background-color: #fff;
+  width: 100vw;
+  height: 300rpx;
+  display: flex;
+}
+.head .left{
+  background-color: #fff;
+  width: 400rpx;
+  height: 100%;
+  margin-left: 50rpx;
+}
+.head .right{
+  width: 160rpx;
+  height: 100%;
+  margin-left: 70rpx;
+  position: relative;
+  z-index: 10;
+}
+.head .left .top{
+  display: flex;
+  justify-content: space-between;
+  width: 110rpx;
+}
+.head .left .top .top-line{
+  background-color: goldenrod;
+  width: 26rpx;
+  height: 8rpx;
+  border-radius: 0 0 5rpx 5rpx;
+}
+
+.head .left .tt{
+  margin-top: 30rpx;
+  font-size: 26rpx;
+}
+.head .left .consum-points{
+  margin-top: 20rpx;
+  font-size: 66rpx;
+  color: goldenrod;
+  font-weight: 600;
+}
+.head .left .td{
+  font-size: 22rpx;
+  color: #888888;
+}
+
+.head .right .bottom{
+  display: flex;
+  justify-content: space-between;
+  width: 110rpx;
+  margin-left: 22rpx;
+  bottom: 0;
+  position: absolute;
+}
+.head .right .bottom .bottom-line{
+  background-color: goldenrod;
+  width: 26rpx;
+  height: 8rpx;
+  border-radius: 5rpx 5rpx 0 0 ;
+}
+.head .right .circle{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background-color: lightblue;
+  margin-left: 17rpx;
+  margin-top:90rpx;
+  display: flex;
+  justify-content: center;
+}
+.head .right .circle .img{
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-self: center;
+}
+
+.mall-list{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.custom-coupon{
+  width: 90%;
+  background-color:rgb(252, 247, 247);
+  display: flex;
+  flex-direction: column;
+  margin-top: 50rpx;
+}
+.custom-coupon .top{
+  display: flex;
+  height: 50rpx;
+}
+.custom-coupon .top .left{
+  height: 40rpx;
+  background-color: goldenrod;
+  width: 7rpx;
+  border-radius: 0 5rpx 5rpx 0;
+  align-self: center;
+}
+.custom-coupon .top .name{
+  font-size: 30rpx;
+  margin-left: 18rpx;
+}

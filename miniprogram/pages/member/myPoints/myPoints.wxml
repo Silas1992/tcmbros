@@ -1,0 +1,20 @@
+<!--miniprogram/pages/member/myPoints/myPoints.wxml-->
+<view class="my-points">
+  
+  <view class="item">
+    <view class="points">0</view>
+    <view class="describle">此积分为消费积分，可用于兑换商品或优惠券</view>
+    <navigator class="to-mall" url="../pointsMall/pointsMall">
+        积分商城
+    </navigator>
+  </view>
+
+  <view class="points-log" wx:if="{{havePoints}}">
+    <view class="title">积分记录</view>
+    <view>
+      <pointsLog></pointsLog>
+    </view>
+  
+  </view>
+  
+</view>

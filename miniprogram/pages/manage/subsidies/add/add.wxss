@@ -1,0 +1,17 @@
+
+.cu-form-group .title {
+  min-width: calc(4em + 0rpx);
+}
+.ad_popError{ 
+  background: #de352d; 
+  color: #fff; 
+  height: 58rpx; 
+  line-height: 58rpx; 
+  font-size: 24rpx; 
+  text-align: center;  
+  position: fixed; 
+  left: 0; 
+  top: 110rpx; 
+  width: 100%; 
+  z-index:30;
+}

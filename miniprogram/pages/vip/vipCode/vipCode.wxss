@@ -1,0 +1,19 @@
+/* miniprogram/pages/vip/vipCode/vipCode.wxss */
+/* miniprogram/pages/vip/valueCard/valueCard.wxss */
+.value-card{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}
+.value-card .image{
+  margin-top: 300rpx;
+  width: 280rpx;
+  height: 280rpx;
+  align-self: center;
+}
+.value-card .explain{
+  margin-top: 20rpx;
+  align-self: center;
+}

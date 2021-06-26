@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "tabs":"../../../components/tabs/tabs",
+    "pointsLog":"../../../components/pointsLog/pointsLog"
+  },
+  "navigationStyle":"custom" 
+}

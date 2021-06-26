@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/person/person",
+    "pages/person/personInfo/personInfo",
+    "pages/member/pointsMall/pointsMall",
+    "pages/member/myPoints/myPoints",
+    "pages/member/myCoupon/myCoupon",
+    "pages/member/myLevel/myLevel",
+    "pages/vip/cardInfo/cardInfo",
+    "pages/vip/addCard/addCard",
+    "pages/vip/valueCard/valueCard",
+    "pages/vip/vipCode/vipCode",
+    "pages/address/add/add",
+    "pages/address/index/address",
+    "pages/manage/slideShow/slideShow",
+    "pages/manage/user/user",
+    "pages/manage/user/userSetting/userSetting",
+    "pages/manage/vip/vip",
+    "pages/manage/vip/vipSetting/vipSetting",
+    "pages/databaseGuide/databaseGuide",
+    "pages/manage/statistics/statistics",
+    "pages/manage/activity/activity",
+    "pages/manage/salary/salary",
+    "pages/manage/income/income",
+    "pages/manage/subsidies/subsidies",
+    "pages/manage/subsidies/add/add",
+    "pages/client/recharge/recharge",
+    "pages/client/consume/consume"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "華醫兄弟",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "tabBar": {
+    "color": "#A2A2A2",
+    "selectedColor": "#E0AE64",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/tabBar/home.png",
+        "selectedIconPath": "images/tabBar/home_HL.png"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "text": "个人",
+        "iconPath": "images/tabBar/person.png",
+        "selectedIconPath": "images/tabBar/person_HL.png"
+      }
+    ],
+    "position": "bottom",
+    "custom": false
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于位置展示,更好地使用本产品"
+    }
+  }
+}

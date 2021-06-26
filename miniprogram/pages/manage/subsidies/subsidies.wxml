@@ -1,0 +1,33 @@
+<!--miniprogram/pages/store/order/order.wxml-->
+<view class='nav bg-white' style='height:{{navH}}rpx'>
+  <view class="first">
+    <image class="goback" bindtap="goback"
+    src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/go-back.png">
+    </image>
+    <text class="title"></text>
+    
+  </view>
+  <view class="bottom">
+    <tabs class="tabs" tabs="{{tabs}}" bind:itemChange="handleItemChange"></tabs>
+  </view>
+</view>
+<scroll-view scroll-y="true" bindscrolltolower="YourFunction" style='height:calc(100vh - {{navH+130}}rpx)' scroll-with-animation="true">
+  <order orders="{{orders}}" isManage="{{isManage}}" 
+  bind:toDetail="toDetail" 
+  bind:cancel="cancel" bind:goPay="goPay" 
+  bind:callback="countDownCallback"></order>
+  <i-loading wx:if="{{next}}" loading="{{next}}" tip='{{tip}}'></i-loading>
+  <view wx:if="{{islast&&orders.length>0}}" class="text-all"> ~已经获取全部数据</view>
+  <view wx:if="{{orders.length==0}}" class="content-null">
+  	<image src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/background-icon/nocard.png" mode='widthFix'></image>
+  	<view class='f-gray13'>暂无相关数据~</view>
+  </view>
+</scroll-view>
+<view  class="add-btn" wx:if="{{!isManage}}">
+	<view class="btn"  bindtap="_toAdd">
+			<image class="icon" 
+			src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/addAddress.png">
+			</image>
+			<view class="name">申请补助</view>
+	</view>
+</view>

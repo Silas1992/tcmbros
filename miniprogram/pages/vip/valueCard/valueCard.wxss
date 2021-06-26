@@ -1,0 +1,385 @@
+/* miniprogram/pages/member/pointsMall/pointsMall.wxss */
+page{
+  overflow:hidden
+}
+.nav{
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.nav-title{
+  width: 100%;
+  height: 310rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.nav .back{
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px 15px;
+}
+.bg-white{
+  background-color:#fff;
+}
+.bg-gray{
+  background-color: #f7f7f7;
+}
+.overflow{
+  overflow: auto;
+}
+.first{
+  display: block;
+  display: flex;
+  margin-top: 80rpx;
+  
+}
+.first .title{
+  font-weight: 500;
+  font-style: initial;
+  font-size: 32rpx;
+  margin-left: 280rpx;
+}
+.first .goback{
+  width: 33rpx;
+  height: 35rpx;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+}
+.head{
+  margin-top: 20rpx;
+  width: 100vw;
+  display: flex;
+  height: 68%;
+}
+.head .left{
+  width: 400rpx;
+  height: 100%;
+  margin-left: 50rpx;
+  position: relative;
+  z-index: 10;
+}
+.head .right{
+  width: 160rpx;
+  height: 100%;
+  margin-left: 70rpx;
+  position: relative;
+  z-index: 10;
+}
+.head .left .top{
+  display: flex;
+  justify-content: space-between;
+  width: 110rpx;
+}
+.head .left .top .top-line{
+  background-color: goldenrod;
+  width: 26rpx;
+  height: 8rpx;
+  border-radius: 0 0 5rpx 5rpx;
+}
+
+.head .left .tt{
+  margin-top: 30rpx;
+  font-size: 26rpx;
+}
+.head .left .consum-points{
+  margin-top: 20rpx;
+  font-size: 66rpx;
+  color: goldenrod;
+  font-weight: 600;
+}
+.head .left .td{
+  font-size: 22rpx;
+  color: #888888;
+}
+.head .left .tabs{
+  position: absolute;
+  bottom: 0;
+  margin-left: -20rpx;
+  width: 360rpx;
+}
+
+.head .right .bottom{
+  display: flex;
+  justify-content: space-between;
+  width: 110rpx;
+  margin-left: 22rpx;
+  bottom: 0;
+  position: absolute;
+}
+.head .right .bottom .bottom-line{
+  background-color: goldenrod;
+  width: 26rpx;
+  height: 8rpx;
+  border-radius: 5rpx 5rpx 0 0 ;
+}
+.head .right .circle{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 2rpx solid goldenrod;
+  margin-left: 17rpx;
+  margin-top:90rpx;
+  display: flex;
+  justify-content: center;
+}
+.head .right .circle .img{
+  width: 110rpx;
+  height: 110rpx;
+  display: flex;
+  align-self: center;
+}
+
+.mall-list{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.member_card{
+  width: 90%;
+  background-color:rgb(252, 247, 247);
+  display: flex;
+  flex-direction: column;
+  margin-top: 50rpx;
+}
+.member_card .top{
+  display: flex;
+  height: 50rpx;
+}
+.member_card .top .left{
+  height: 40rpx;
+  background-color: goldenrod;
+  width: 7rpx;
+  border-radius: 0 5rpx 5rpx 0;
+  align-self: center;
+}
+.member_card .top .name{
+  font-size: 30rpx;
+  margin-left: 18rpx;
+}
+
+.member_card .item{
+  display: flex;
+  height: 200rpx;
+  margin-top: 60rpx;
+}
+.member_card .item_1{
+  display: flex;
+  height: 200rpx;
+  margin-top: 60rpx;
+  border: 4rpx goldenrod dashed;
+  justify-content: center;
+}
+.member_card .item_1 .icon{
+  height: 80rpx;
+  width: 80rpx;
+  align-self:center;
+}
+
+.member_card .item .left{
+  border: 1rpx solid #c1c1c1;
+  height: 100%;
+  width: 34%;
+  border-radius: 26rpx;
+  overflow: hidden;
+  box-shadow:0rpx 0rpx 6rpx 3rpx #c1c1c1;
+}
+.member_card .item .left .image{
+  height: 100%;
+  width: 100%;
+}
+
+.member_card .item .right{
+  flex:1;
+  display: flex;
+  height:100% ;
+  flex-direction: column;
+}
+
+.member_card .item .right .head_1{
+  margin-left: 20rpx;
+  width: 100%;
+  position: relative;
+  z-index: 30;
+  display: flex;
+}
+.member_card .item .right .head_1 .title{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.member_card .item .right .head_1 .icon{
+  position: absolute;
+  right: 20rpx;
+
+}
+.member_card .item .right .head_1 .icon .putaway{
+  height: 40rpx;
+  width: 40rpx;
+  margin-right: 20rpx;
+}
+.member_card .item .right .head_1 .icon .delete{
+  height: 40rpx;
+  width: 40rpx;
+}
+
+.member_card .item .right .describle{
+  width: 72%;
+  font-size: 24rpx;
+  color: #888888;
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+  height: auto;
+}
+.member_card .item .right .bottom{
+  width: 100%;
+  flex:1;
+  display: flex;
+  position: relative;
+  z-index: 10;
+}
+
+.member_card .item .right .bottom .type{
+  margin-left: 20rpx;
+  border: 1rpx solid goldenrod;
+  font-size: 22rpx;
+  line-height: 32rpx;
+  color: goldenrod;
+  position: absolute;
+  bottom: 15rpx;
+  display: flex;
+  justify-content: center;
+  width: 100rpx;
+}
+
+.member_card .item .right .bottom .price{
+  height: 50rpx;
+  width: 120rpx;
+  border-radius: 25rpx;
+  background-color: goldenrod;
+  color: white;
+  font-size: 30rpx;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  line-height: 50rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.member_card .module_2{
+  position: relative;
+  z-index: 10;
+}
+
+.member_card .module_2 .head{
+  display: flex;
+  height: 50rpx;
+  align-content: center;
+  position: relative;
+  z-index: 20;
+  margin-top: -20rpx;
+}
+
+.member_card .module_2 .head .price{
+  font-size: 36rpx;
+  align-self: center;
+}
+.member_card .module_2 .head .name{
+  margin-left: 10rpx;
+  font-size: 26rpx;
+  color: #888888;
+  align-self: center;
+  position: absolute;
+  bottom: 0;
+  left:120rpx
+}
+
+.member_card .module_2 .person_card{
+  border: 1rpx solid #c1c1c1;
+  height: 400rpx;
+  width: 100%;
+  border-radius: 26rpx;
+  overflow: hidden;
+  box-shadow:0rpx 0rpx 6rpx 3rpx #c1c1c1;
+  margin-top: 20rpx;
+}
+
+.member_card .module_2 .person_card .iamge{
+  height: 100%;
+  width: 100%;
+}
+
+.member_card .module_2 .bottom_1{
+  height: 70rpx;
+  margin-top: 20rpx;
+  position: relative;
+  z-index: 20;
+}
+
+.member_card .module_2 .bottom_1 .card_no{
+  position: absolute;
+  right: 0;
+  color: #888888;
+  font-size: 24rpx;
+}
+
+.member_card .module_2 .bottom_1 .indate{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #888888;
+  font-size: 24rpx;
+}
+
+
+
+.member_card .module_2 .bottom_2{
+  display: flex;
+  flex-direction: column;
+  margin-top: 30rpx;
+}
+.member_card .module_2 .bottom_2 .consum_record{
+  display: flex;
+  height: 50rpx;
+
+}
+
+.member_card .module_2 .bottom_2 .consum_record .icon{
+  align-self: center;
+  height: 50rpx;
+  width: 50rpx;
+}
+.member_card .module_2 .bottom_2 .consum_record .title{
+  font-size: 30rpx;
+  line-height: 50rpx;
+  margin-left: 10rpx;
+}
+
+.value-card{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.value-card .image{
+  margin-top: 160rpx;
+  width: 380rpx;
+  height: 380rpx;
+  align-self: center;
+}
+.value-card .explain{
+  margin-top: 20rpx;
+  align-self: center;
+}
+
+
+

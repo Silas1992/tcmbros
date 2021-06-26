@@ -1,0 +1,18 @@
+<!--miniprogram/pages/manage/user/userSetting/userSetting.wxml-->
+<view class="item" wx:for="{{userInfo}}" wx:key="index">
+ 
+  <view class="line">
+    <image class="image"  size="100rpx" wx:if="{{item.avatarUrl == undefined || item.avatarUrl == ''}}"
+    style="background-image:url({{avatarUrl}})"></image>
+    <image class="image"  size="100rpx" wx:if="{{item.avatarUrl != ''}}"
+    style="background-image:url({{item.avatarUrl}})"></image>
+    <view class="t2">{{item.name}}</view>
+    <button wx:if="{{item.position == 1}}"
+    style="padding: 0px 0px;background-color:#ffffff;min-height:0px" 
+    id="{{item._openid}}" data-_id="{{item._id}}" bindtap="addManage" class="t3">设为管理员</button>
+    <button wx:if="{{item.position == 3}}"
+    style="padding: 0px 0px;background-color:goldenrod;min-height:0px;color:#fff" 
+    id="{{item._openid}}" data-_id="{{item._id}}" bindtap="delManage" class="t3">取消管理员</button>
+  </view>
+
+</view>

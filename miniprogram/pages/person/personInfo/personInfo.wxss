@@ -1,0 +1,63 @@
+/* miniprogram/pages/person/personInfo/personInfo.wxss */
+
+.item{
+  width: 95%;
+  align-self: center;
+  background-color: #fff;
+}
+
+.item .head{
+  display: flex;
+  height: 240rpx;
+  align-content: center;
+  justify-content: center;
+}
+
+.item .head .image{
+  align-self: center;
+  width: 140rpx;
+  height: 140rpx;
+  background-color: greenyellow;
+  border-radius: 50%;
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  -moz-background-size:100% 100%;
+}
+
+.item .line{
+  display: flex;
+  position: relative;
+  z-index: 10;
+  border-bottom: 1rpx solid #eee;
+}
+
+.item .line .t1{
+  line-height: 100rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #888888;
+  margin-left: 20rpx;
+  width: 170rpx;
+}
+
+.item .line .t2{
+  margin-left: 10rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.item .line .t3{
+  position: absolute;
+  right: 20rpx;
+  width: 170rpx;
+  border: 1rpx solid goldenrod;
+  border-radius: 35rpx;
+  height: 70rpx;
+  align-self: center;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  color: goldenrod;
+  font-weight: bold;
+}

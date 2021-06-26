@@ -1,0 +1,19 @@
+
+<view class="item" wx:for="{{userInfo}}" wx:key="index">
+  <form catchsubmit="formSubmit" >
+    <view class="line">
+      <image class="image"  size="100rpx" wx:if="{{item.avatarUrl == ''}}"
+      style="background-image:url({{avatarUrl}})"></image>
+      <image class="image"  size="100rpx" wx:if="{{item.avatarUrl != ''}}"
+      style="background-image:url({{item.avatarUrl}})"></image>
+      <view class="t2">{{item.nickname}}</view>
+      <view class="t3">vip</view>
+      <view class="option">
+        <input class="ss" 
+        value="{{item.balance}}" name="name" placeholder="0"/>
+        <button class="btn" data-_id="{{item._id}}" data-openid="{{item._openid}}"
+        type="primary" size="mini" form-type="submit">充值</button>
+      </view>
+    </view>
+  </form>
+</view>

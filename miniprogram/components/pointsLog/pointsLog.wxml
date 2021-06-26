@@ -1,0 +1,37 @@
+
+<!-- wx:for="{{}}" wx:key="index" wx:key-index="idx" -->
+<view class="log">
+  <view class="yearItem" wx:for="{{newRecord}}" wx:key="index" wx:for-item="yearItem">
+    <view class="head">
+      <view class="icon"></view>
+      <view class="time">{{yearItem.year}}年{{yearItem.month}}月</view>
+    </view>
+    <view class="items" wx:for="{{yearItem.subList}}" wx:key="index" >
+      <view class="item">
+        <view class="left">
+          <view class="type">{{item.goods_name}}</view>
+          <view class="creat-time">{{item.create_time}}</view>
+        </view>
+        <view class="change-points">
+          <view class="member">
+            <text style="margin-left:20rpx">完成人员：{{item.employee}}</text>
+          </view>
+          <view wx:if="{{item.state == 1}}"
+          class="money">-{{item.price}}
+          <text style="color:gray;margin-left:10rpx">余额：{{item.memberBalance}}</text>
+          </view>
+          <view wx:else
+          class="money">+{{item.price}}
+          <text style="color:gray;margin-left:10rpx">余额：{{item.memberBalance}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="remark" wx:if="{{item.remark !== ''}}">
+        备注：{{item.remark}}
+      </view>
+      <view wx:else class="remark">
+        备注：无
+      </view>
+    </view>
+  </view>
+</view>

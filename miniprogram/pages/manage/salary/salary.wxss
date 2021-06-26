@@ -1,0 +1,49 @@
+
+.member_card{
+  width: 90%;
+  align-self: center;
+  background-color:rgb(252, 247, 247);
+  display: flex;
+  flex-direction: column;
+  margin-top: 50rpx;
+}
+.member_card .module_2 .bottom_2{
+  display: flex;
+  flex-direction: column;
+  margin-top: 30rpx;
+}
+.member_card .module_2 .bottom_2 .consum_record{
+  display: flex;
+  height: 50rpx;
+
+}
+
+.member_card .module_2 .bottom_2 .consum_record .icon{
+  align-self: center;
+  height: 50rpx;
+  width: 50rpx;
+}
+.member_card .module_2 .bottom_2 .consum_record .title{
+  font-size: 30rpx;
+  line-height: 50rpx;
+  margin-left: 10rpx;
+}
+
+.value-card{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.value-card .image{
+  margin-top: 160rpx;
+  width: 380rpx;
+  height: 380rpx;
+  align-self: center;
+}
+.value-card .explain{
+  margin-top: 20rpx;
+  align-self: center;
+}

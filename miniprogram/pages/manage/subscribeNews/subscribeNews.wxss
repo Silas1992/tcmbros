@@ -1,0 +1,40 @@
+/* miniprogram/pages/manage/subscribeNews/subscribeNews.wxss */
+.menu{
+  width: 90%;
+  align-self: center;
+  height: 100vh;
+}
+.menu .explain{
+  width: 100%;
+  margin-top: 20rpx;
+}
+.menu .explain .title{
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.menu .explain .t1{
+  font-size: 26rpx;
+  color: #888888;
+}
+
+.menu .item{
+  width: 100%;
+  display: flex;
+  margin-top: 20rpx;
+  position: relative;
+  z-index: 1;
+}
+.menu .item .left .title{
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.menu .item .left .num{
+  font-size: 26rpx;
+  color: #888888;
+}
+.menu .item .right{
+  align-self: center;
+  position: absolute;
+  right: 0;
+}

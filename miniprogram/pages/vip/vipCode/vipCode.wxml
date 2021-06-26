@@ -1,0 +1,6 @@
+
+<view class="value-card">
+  <image class="image" 
+  src="cloud://release-eut65.7265-release-eut65-1302731086/background-icon/develop.png"></image>
+  <view class="explain">功能升级中，敬请期待</view>
+</view>

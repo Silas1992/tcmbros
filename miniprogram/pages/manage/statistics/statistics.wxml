@@ -1,0 +1,43 @@
+<!--miniprogram/pages/manage/statistics/statistics.wxml-->
+<view class="container">
+  <view class="select-time">
+    <view class="first-line">
+      <view bindtap="selectSeven" class="item{{seven?'':'-no'}}">近7天</view>
+      <view bindtap="selectThirty" class="item{{thirty?'':'-no'}}">近30天</view>
+      <view bindtap="selectCustom" class="item{{custom?'':'-no'}}">自定义</view>
+    </view>
+    <view class="second-line" wx:if="{{custom}}">
+      <picker mode="date" value="{{startDate}}" start="2021-03-06" bindchange="bindStartDateChange">
+        <view wx:if="{{startDate==0}}" class="start">开始日期
+        <image class="img" src="cloud://release-eut65.7265-release-eut65-1302731086/system-icon/down.png"></image>
+        </view>
+        <view class="start" wx:if="{{startDate!=0}}">{{startDate}}</view>
+      </picker>
+      
+      <text style="color:#888">到</text>
+      <picker mode="date" value="{{endDate}}" start="2021-03-06" bindchange="bindEndDateChange">
+        <view wx:if="{{endDate==0}}" class="start">结束日期
+        <image class="img" src="cloud://release-eut65.7265-release-eut65-1302731086/system-icon/down.png"></image>
+        </view>
+        <view class="start" wx:if="{{endDate!=0}}">{{endDate}}</view>
+      </picker>
+      
+    </view>
+  </view>
+  <scroll-view scroll-y="true" class="wrapper">
+    <view class="food-data" >
+      <view class="tt">数据详情</view>
+      <view class="countNum">
+        <view class="row">商品名称</view>
+        <view class="row" wx:if="{{today}}">当日</view>
+        <view class="row" wx:if="{{seven}}">近7天</view>
+        <view class="row" wx:if="{{thirty}}">近30天</view>
+        <view class="row" wx:if="{{custom}}">自定义</view>
+      </view>
+      <view class="countNum{{index%2==0?'-first':''}}" wx:for="{{orders}}"  wx:key="index">
+        <view class="row-1">{{item._id.name}}</view>
+        <view class="row-1">{{item.totalNum}}</view>
+      </view>
+    </view> 
+  </scroll-view>
+</view>

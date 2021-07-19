@@ -1,7 +1,28 @@
-<!--miniprogram/pages/member/myCoupon/myCoupon.wxml-->
-<view class="my">
-  <view class="my-coupon">
-    <cou></cou>
-    <cou></cou>
+<view class='nav bg-white' style='height:{{navH}}rpx'>
+  <view class="first">
+    <image class="goback" bindtap="goback"
+    src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/go-back.png">
+    </image>
+    <text class="title"></text>
+    
+  </view>
+  <view class="bottom">
+    <tabs class="tabs" tabs="{{tabs}}" bind:itemChange="handleItemChange"></tabs>
   </view>
 </view>
+<scroll-view scroll-y="true" bindscrolltolower="YourFunction" 
+  style='height:calc(100vh - {{navH+130}}rpx)' scroll-with-animation="true">
+  <view class="outer" >
+    <view class="inner" wx:for="{{Mycoupon}}" wx:key="index" wx:for-item="item">
+      <cou coupon="{{item}}" present="{{present}}"
+      bind:cancel="cancel" bind:goPay="goPay" 
+      bind:callback="countDownCallback"></cou>
+    </view>
+  </view>
+    <i-loading wx:if="{{next}}" loading="{{next}}" tip='{{tip}}'></i-loading>
+    <view wx:if="{{islast&&Mycoupon.length>0}}" class="text-all"> ~已经获取全部数据</view>
+    <view wx:if="{{Mycoupon.length==0}}" class="content-null">
+      <image src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/background-icon/nocard.png" mode='widthFix'></image>
+      <view class='f-gray13'>暂无相关数据~</view>
+    </view>
+</scroll-view>

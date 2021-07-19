@@ -9,12 +9,16 @@ Page({
   data: {
     banner:{}
   },
+  toLogin:function(){
+    wx.navigateTo({
+      url: '../person/personInfo/personInfo',
+    })
+  },
   toappointment:function(evt){
     wx.showModal({
       title:'温馨提示',
       content:'理疗预约功能火速建立中，请您持续关注'
     })
-
   },
   _toAccounts:function(evt){
     wx.showModal({

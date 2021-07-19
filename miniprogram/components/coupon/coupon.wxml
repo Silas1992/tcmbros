@@ -3,21 +3,31 @@
   <view class="item">
     <view class="left">
       <view class="face-value">
-        <view class="a">
-          ￥
+        <view class="b" wx:if="{{present !== 2}}">
+          {{coupon.totalTime - coupon.usedTime}}
         </view>
-        <view class="b">
-          2
+        <view class="b" wx:if="{{present == 2}}">
+          {{coupon.usedTime}}
+        </view>
+        <view class="a">
+          次
         </view>
       </view>
       <view class="condition">
-        满10元可用
+        {{coupon.goods_name}}
       </view>
     </view>
     <view class="middle">
-      <view class="condition">满10元减2元</view>
-      <view class="describle">领取后当天生效，生效期10天</view>
-      <view class="exclude">互斥券</view>
+      <view class="condition" wx:if="{{present !== 2}}">{{coupon.title}}</view>
+      <view class="describle" wx:if="{{present !== 2}}">失效时间：{{coupon.end_time}}</view>
+      <view class="condition" wx:if="{{present == 2}}">{{coupon.goods_name}}</view>
+      <view class="describle" wx:if="{{present == 2}}">{{coupon.title}}</view>
+      <view class="exclude" wx:if="{{coupon.type == 1}}">
+        按次服务卷
+      </view>
+      <view class="exclude" wx:if="{{coupon.type == 2}}">
+        满减优惠卷
+      </view>
     </view>
 
     <view class="right" wx:if="{{flase}}">
@@ -25,10 +35,17 @@
       <view class="exchange">立即兑换</view>
     </view>
 
-    <view class="right" wx:if="{{true}}">
+    <view class="right" wx:if="{{flase}}">
       <view class="to-use">去使用</view>
     </view>
-
-    
+    <view class="right" wx:if="{{present == 1}}">
+      <view class="to-use" style="background-color:goldenrod">可使用</view>
+    </view>
+    <view class="right" wx:if="{{present == 2}}">
+      <view class="to-use">已使用</view>
+    </view>
+    <view class="right" wx:if="{{present == 3}}">
+      <view class="to-use">已过期</view>
+    </view>
   </view>
 </view>

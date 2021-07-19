@@ -19,7 +19,7 @@
   height: 100%;
 }
 .foodItem .top .left .eat_type{
-  width: 70rpx;
+  width: 100rpx;
   height: 36rpx;
   display: flex;
   justify-content: center;

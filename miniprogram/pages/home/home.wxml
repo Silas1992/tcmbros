@@ -15,13 +15,13 @@
     </navigator>
   </swiper-item>
 </swiper>
-<view class="start-order" bindtap="toappointment">
+<view class="start-order" bindtap="toLogin">
   <view class="orderREC">
     <image class="img"
     src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/gotoOrder.png"/>
     <view class="right">
-      <view class="right_1">开始预约</view>
-      <view class="right_2">提前预约，无需等待</view>
+      <view class="right_1">开始注册</view>
+      <view class="right_2">提前注册，无需等待</view>
     </view>
   </view>
 </view>

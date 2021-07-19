@@ -69,6 +69,18 @@
         {
           "name": "消费记录",
           "pathName": "pages/client/consume/consume",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "优惠券",
+          "pathName": "pages/member/myCoupon/myCoupon",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "个人中心",
+          "pathName": "pages/person/person",
           "scene": null
         }
       ]

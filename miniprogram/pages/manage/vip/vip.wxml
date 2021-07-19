@@ -12,7 +12,7 @@
 <view class="item" wx:for="{{userInfo}}" wx:key="index">
   <form catchsubmit="formSubmit" >
     <view class="line">
-      <image class="image"  size="100rpx" wx:if="{{item.avatarUrl == ''}}"
+      <image class="image" size="100rpx" wx:if="{{item.avatarUrl == ''}}"
       style="background-image:url({{avatarUrl}})"></image>
       <image class="image"  size="100rpx" wx:if="{{item.avatarUrl != ''}}"
       style="background-image:url({{item.avatarUrl}})"></image>

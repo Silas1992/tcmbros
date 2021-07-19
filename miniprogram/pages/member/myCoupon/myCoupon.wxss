@@ -1,10 +1,60 @@
 /* miniprogram/pages/member/myCoupon/myCoupon.wxss */
 
-.my{
+page{
+  height: 100%;
+}
+.bg-white{
+  background-color:#fff;
+}
+.bg-gray{
+  background-color: #f7f7f7;
+}
+.nav{
+  display: flex;
+  flex-direction: column;
+}
+.first{
+  display: block;
+  display: flex;
+  margin-top: 80rpx;
+}
+.first .title{
+  font-weight: 500;
+  font-style: initial;
+  font-size: 32rpx;
+  margin-left: 280rpx;
+}
+.first .goback{
+  width: 33rpx;
+  height: 35rpx;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+}
+.bottom{
+  flex: 1;
+  width: 100vw;
+  display: flex;
+  position: relative;
+  z-index: 10;
+}
+.bottom .tabs{
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+}
+/* tip样式 */
+
+.text-all{
+  text-align: center;
+  color: #999;
+  font-size: 27rpx;
+  margin-top: 18rpx;
+}
+.outer{
   width: 100vw;
   display: flex;
   flex-direction: column;
 }
-.my-coupon{
+.inner{
   align-self: center;
 }

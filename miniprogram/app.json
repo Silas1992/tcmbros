@@ -26,7 +26,8 @@
     "pages/manage/subsidies/subsidies",
     "pages/manage/subsidies/add/add",
     "pages/client/recharge/recharge",
-    "pages/client/consume/consume"
+    "pages/client/consume/consume",
+    "pages/manage/text/text"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

@@ -59,10 +59,19 @@
 .member-info .nickname{
   display: flex;
 }
+.member-info .nickname .nick{
+  width: 200rpx;
+  display:-webkit-box;
+  -webkit-line-clamp:1;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  -webkit-box-orient:vertical;
+  word-break:break-all;
+}
 .member-info .card-no{
   position: absolute;
-  right: 100rpx;
-  margin-top:16rpx;
+  right: 150rpx;
+  margin-top:28rpx;
   font-size: 38rpx;
   color: goldenrod;
 }

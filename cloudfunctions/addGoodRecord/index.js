@@ -7,6 +7,10 @@ const db = cloud.database()
 
 // 云函数入口函数
 exports.main = async (event, context) => {
+  let payType = '手机管理端'
+  if(event.payType){
+    payType = event.payType
+  }
   //获取当前的时间
   var date = new Date()
   let year = date.getFullYear()
@@ -34,7 +38,7 @@ exports.main = async (event, context) => {
       member_name:event.memberName,
       member_tel:event.memberTel,
       state:2,
-      pay_type:'手机管理端',
+      pay_type:payType,
       remark:'',
       create_time:currentTime,
       update_time:currentTime,

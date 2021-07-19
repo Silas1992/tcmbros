@@ -14,9 +14,13 @@
         <view class="creat-time">{{item.create_time}}</view>
       </view>
       <view class="change-points">
-        <view class="member">
+        <view class="member" wx:if="{{item.card_no !== ''}}">
           <text>卡号：{{item.card_no}}</text>
           <text style="margin-left:20rpx">姓名：{{item.member_name}}</text>
+        </view>
+        <view class="member" wx:if="{{item.card_no == ''}}">
+          <text style="color:red">散客</text>
+          <text style="color:red" style="margin-left:20rpx">{{item.pay_type}}</text>
         </view>
         <view class="money">+{{item.de_money}}</view>
       </view>

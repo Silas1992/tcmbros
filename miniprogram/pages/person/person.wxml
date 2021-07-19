@@ -9,18 +9,19 @@
     ></button>
     <view class="member-info">
       <view class="nickname">
-      <open-data type="userNickName"></open-data>
+      <open-data class="nick" type="userNickName"></open-data>
       <view class="card-no" wx:if="{{memberInfo.card_no !== 0}}">No.{{memberInfo.card_no}}</view>
       </view>
       <view wx:if="{{memberInfo.tel == ''}}" class="tel">您为游客，请点击头像注册</view>
       <view wx:else class="tel">{{memberInfo.tel}}</view>
     </view>
   </view>
-  <view class="save">此卡已为你节省：{{memberInfo.saveValue}}.00元</view>
+  <view wx:if="{{memberInfo.saveValue !== 0}}" class="save">此卡已为你节省：{{memberInfo.saveValue}}.00元</view>
+  <view wx:else class="save"></view>
   <view class="bottom">
     <navigator class="item" url="../member/myPoints/myPoints">
       <view class="title">积分</view>
-      <view class="value">0</view>
+      <view class="value">{{memberInfo.consum_points}}</view>
     </navigator>
     <!-- url="../vip/valueCard/valueCard?cardBalance={{memberInfo.balance}}"-->
     <navigator class="item-2" url="../vip/valueCard/valueCard?cardBalance={{memberInfo.balance}}">
@@ -29,7 +30,7 @@
     </navigator> 
     <navigator class="item" url="../member/myCoupon/myCoupon">
       <view class="title">优惠劵</view>
-      <view class="value">0</view>
+      <view class="value">info</view>
     </navigator>
   </view>
 </view>

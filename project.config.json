@@ -38,7 +38,7 @@
   },
   "appid": "wx5c4e408fb57d8045",
   "projectname": "tcmbros",
-  "libVersion": "2.15.0",
+  "libVersion": "2.17.3",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "search": {

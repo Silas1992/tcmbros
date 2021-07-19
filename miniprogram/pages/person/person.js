@@ -96,7 +96,9 @@ Page({
                 wx.getUserProfile({
                 desc: "获取你的昵称、头像、地区及性别",
                 success: res => {
-                  console.log(res)
+                  wx.showLoading({
+                    title: '加载中...',
+                  })
                   let userInfo = res.userInfo;
                   that.setData({
                     userInfo:userInfo
@@ -132,9 +134,6 @@ Page({
   },
   //创建会员积分表方法
   creatMember:function(evt){
-    wx.showLoading({
-      title: '加载中...',
-    })
     var userInfo = this.data.userInfo
     var myDate = new Date()
     var currentTime = time.formatTime(myDate,'Y/M/D h:m:s')
@@ -258,7 +257,6 @@ Page({
       name:'getMemberInfo',
       complete:res=>{
         if(res.result !== undefined){
-          
           let data =  res.result.data
           if(data.length != 0 && data[0].auth){
             //该用户已经注册并授权，直接获取它的头像和昵称

@@ -1,7 +1,6 @@
 //index.js
-//获取应用实例
+//获取应用实例世界都去哪里了
 const app = getApp()
-
 Page({
   data: {
     StatusBar: app.globalData.StatusBar,
@@ -19,11 +18,12 @@ Page({
   },
   regroup:function(deductRecord){
     let newRecord = [];
-    console.log('来了来了',deductRecord)
     deductRecord.forEach((item,i)=>{
       let index = -1
       let sindex = -1
+      let mindex = -1
       let isExists = newRecord.some((newItem,j)=>{
+        mindex = j
         if(item.year == newItem.year && item.month == newItem.month){
           index = j;
           let sisExists = newItem.subList.some((newsItem,z)=>{
@@ -53,7 +53,7 @@ Page({
           total:Number(item.de_money),
           subList:[]
         })
-        newRecord[i].subList.push({
+        newRecord[mindex+1].subList.push({
           date:item.date,
           date_total:Number(item.de_money),
           subsList:[item]

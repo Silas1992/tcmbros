@@ -257,7 +257,7 @@
       <view class="bottom"/>
     </navigator>
     <navigator class="item"
-    wx:if="{{memberInfo.isManage}}"  
+    wx:if="{{memberInfo.isManage && memberInfo.position == 4}}"  
     url="../manage/vip/vip">
       <view class="top">
         <image class="icon"

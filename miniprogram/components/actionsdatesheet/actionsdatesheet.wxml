@@ -1,0 +1,44 @@
+<!--components/actionsdatesheet/actionsdatesheet.wxml-->
+<wxs module="utils">
+    var join = function(a,b) {
+        return a+b
+    };
+    var isNotSlot = function(v) {
+        return typeof v !== 'string'
+    }
+    module.exports = {
+        join: join,
+        isNotSlot: isNotSlot
+    }
+</wxs><view wx:if="{{mask}}" class="weui-mask {{show ? '' : 'weui-mask_hidden'}} {{maskClass}}" bindtap="closeActionSheet"/>
+<view style="background-color: #eee;" class="weui-actionsheet {{show ? 'weui-actionsheet_toggle' : ''}} {{extClass}}">
+    <block wx:if="{{title}}">
+        <view class="weui-actionsheet__title" style="background-color: #eee;" >
+            <view class="weui-actionsheet__title-text" style="font-size:32rpx;color:black;">
+                {{title}}
+            </view>
+        </view>
+    </block>
+    <slot name="title" wx:else/>
+    <scroll-view scroll-y="true" style="height:800rpx"
+        id="scroll-id" scroll-with-animation="true">
+    <view style="background-color: #eee;" class="months" 
+    wx:key="index" wx:for-item="actionItem" wx:for="{{actions}}">
+        <block wx:if="{{utils.isNotSlot(actionItem)}}">
+          <view class="monthItem {{actionItem.type === 'warn' ? 'months_selected' : 'months_no_selected' }}" 
+          data-groupindex="{{actionItem.value}}"
+          hover-class="weui-active"
+          data-value="{{actionItem.value}}" bindtap="buttonTap">
+              {{actionItem.value}}
+          </view>
+        </block>
+        <slot name="{{actionItem}}" wx:else/>
+    </view>
+    </scroll-view>
+    <view class="weui-actionsheet__action" wx:if="{{showCancel}}">
+        <view class="weui-actionsheet__cell" hover-class="weui-active" data-type="close" id="iosActionsheetCancel" bindtap="closeActionSheet">
+            {{cancelText}}
+        </view>
+    </view>
+</view>
+

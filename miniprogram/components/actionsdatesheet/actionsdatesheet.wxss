@@ -1,0 +1,50 @@
+.weui-mask.weui-mask_hidden{
+  opacity:0;transform:scale3d(1,1,0)
+}
+.weui-mask{
+  opacity:1;transform:scale3d(1,1,1);transition:all 0.3s
+}
+.year-box{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.year{
+  font-size: 26rpx;
+  color: grey;
+  display: flex;
+  justify-content: center;
+  line-height: 60rpx;
+  height: 60rpx;
+  margin-top: 25rpx;
+  margin-bottom: -20rpx;
+}
+.months{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 94% !important;
+  align-self: center;
+}
+.months_selected{
+  background-color: #06ae56;
+  color:white;
+}
+.months_no_selected{
+  background-color: white;
+}
+.monthItem{
+  width: 23%; 
+  height: 80rpx;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  line-height: 80rpx;
+  border-radius: 5rpx;
+}
+.monthItem:not(:nth-child(4n)) {
+  margin-right: calc(8% / 3);
+}
+

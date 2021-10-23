@@ -1,0 +1,3 @@
+/* components/sticky/sticky.wxss */
+.weui-sticky{position:relative;width: 100vw;align-self: center;}
+.weui-sticky__fixed{position:fixed;left:0;top:0;width: 100vw;}

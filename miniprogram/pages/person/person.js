@@ -41,7 +41,6 @@ Page({
             })
           }
         })
-        
       },
       fail:(err)=>{
         console.log('发生错误',err)
@@ -215,7 +214,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
     if (!wx.cloud) {
       wx.redirectTo({
         url: '../chooseLib/chooseLib',

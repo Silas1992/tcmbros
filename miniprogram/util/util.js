@@ -119,12 +119,82 @@ const week = date => {
     time:[hour, minute].map(formatNumber).join(':'),
   }
 }
+function formatTime(date) {
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+
+  var hour = date.getHours()
+  var minute = date.getMinutes()
+  var second = date.getSeconds()
+
+
+  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+}
+
+//当天的00:00:00
+function formatTimeToday(date) {
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  var hour = 0
+  var minute = 0
+  var second = 0
+  return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+}
+//当天的00:00:00
+function formatTimeToday02(date) {
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  var hour = 0
+  var minute = 0
+  var second = 0
+  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+}
+//只返回日期的格式化方法
+function formatDate(date){
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  return [year, month, day].map(formatNumber).join('-')
+}
+//只返回日期的格式化方法
+function formatDate02(date){
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  return [year, month, day].map(formatNumber).join('/')
+}
+//当天的00:00:00
+function formatTimeMonth(date) {
+  var year = date.getFullYear()
+  var month = 0
+  console.log('获取到的month',date.getMonth())
+  if(date.getMonth()==0){
+    year  = year - 1
+    month = 12
+  }else{
+    month = date.getMonth()
+  }
+  console.log('哈哈哈',year,month)
+  var day = date.getDate()
+  var hour = 0
+  var minute = 0
+  var second = 0
+  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+}
 
 module.exports = {
   arrRemoveObj: arrRemoveObj,
   uuid:uuid,
   wxuuid:wxuuid,
   formatTime:formatTime,
+  formatTimeToday:formatTimeToday,
+  formatTimeMonth:formatTimeMonth,
+  formatDate:formatDate,
+  formatDate02:formatDate02,
+  formatTimeToday02:formatTimeToday02,
   timerarr:timerarr,
   week,
   catelist

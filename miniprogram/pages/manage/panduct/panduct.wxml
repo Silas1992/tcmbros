@@ -1,0 +1,191 @@
+<view style="height:100%">
+  <view class="demo-block">
+    <view class="dataTotal">
+      <view class="title">
+        <view class="describle">概览</view>
+        <view class="selTime">
+          <view  bindtap="handleSelect" wx:if="{{selected!==4}}">
+            {{currentSelectValue}}
+            <image style="height:20rpx;width:20rpx" src="/images/down.png"></image>
+          </view>
+          <view bindtap="handleSelect" wx:if="{{selected == 4}}">
+            <view class="second-line">
+              <picker mode="date" value="{{startDate}}" start="2021-03-06" bindchange="bindStartDateChange">
+                <view wx:if="{{startDate==0}}" class="start">开始日期
+                <image class="img" src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/down.png"></image>
+                </view>
+                <view class="start" wx:if="{{startDate!=0}}">{{startDate}}</view>
+              </picker>
+              
+              <text style="color:#888">到</text>
+              <picker mode="date" value="{{endDate}}" start="2021-03-06" bindchange="bindEndDateChange">
+                <view wx:if="{{endDate==0}}" class="start">结束日期
+                <image class="img" src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/down.png"></image>
+                </view>
+                <view class="start" wx:if="{{endDate!=0}}">{{endDate}}</view>
+              </picker>
+            </view>
+          </view>
+          <view class="selectTab" wx:if="{{isShow}}">
+            <view bindtap="selectToday">当日</view>
+            <view bindtap="selectSeven">近7天</view>
+            <view bindtap="selectThirty">近30天</view>
+            <view bindtap="selectCustom">自定义</view>
+          </view>
+        </view>
+      </view>
+      <view class="top">
+        <view class="left">
+          <view class="first">
+            <view class="text">
+              综合收入
+            </view>
+            <view class="value">
+              {{freeIn+CardIn+couponIn}}
+            </view>
+          </view>
+          <view class="second">
+            新增会员数：{{insertNum}}人
+          </view>
+        </view>
+        <view class="right">
+          <view class="first">
+            <view class="text">
+              会员消费
+            </view>
+            <view class="value">
+              {{incomeDate}}
+            </view>
+          </view>
+          <view class="second">
+            散客消费：{{freeIn}}元
+          </view>
+        </view>
+      </view>
+      <view class="bottom">
+        <view class="left">
+          <view class="first">
+            <view class="text">
+              售卡收入
+            </view>
+            <view class="value">
+              {{CardIn}}
+            </view>
+          </view>
+        </view>
+        <view class="right" style="border-left: 1rpx solid #e1e1e1;">
+          <view class="first">
+            <view class="text">
+              券类收入
+            </view>
+            <view class="value">
+              {{couponIn}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 导航 -->
+    <view class="demo-body">
+      <mp-sticky bindscroll="onScroll">
+        <mp-tabs 
+          tabs="{{tabs}}" 
+          activeTab="{{activeTab}}" 
+          swiperClass="weui-tabs-swiper"
+          bindtabclick="onTabClick"
+          bindchange="onChange"
+          activeClass="tab-bar-title__selected"
+          class="mytabs"
+        >
+        
+        </mp-tabs>
+        <view class="item" wx:if="{{activeTab == 0}}">
+          <button type="{{selectedIn == 1 ? 'default':default}}" 
+          style="background-color: {{selectedIn === 1 ? '#f2f2f2' : '#f2f2f2' }}"
+          bindtap="selectBtn" data-id="1">会员办理</button>
+          <button type="{{selectedIn == 2 ? 'default':default}}" 
+          style="background-color: {{selectedIn === 2 ? '#f2f2f2' : '#f2f2f2' }}"
+          bindtap="selectBtn" data-id="2">散客收入</button>
+        </view>
+        <view class="pslog-box" wx:if="{{activeTab == 0}}">
+          <pointsLog class="pslog"  wx:if="{{record.length !== 0}}" newRecord="{{newRecord}}"></pointsLog>
+        </view>
+        
+        
+        <view class="item" wx:if="{{activeTab == 1}}" >
+          <block wx:for="{{employees}}" wx:key="index">
+            <button class="employee"  type="{{selectedName == item.name ? 'default':default}}" 
+            style="background-color: {{selectedName === item.name ? '#f2f2f2' : '#f2f2f2' }}"
+            bindtap="selectBtn" data-name="{{item.name}}">{{item.name}}</button>
+          </block>
+        </view>
+        <!-- <view class="item1" wx:if="{{activeTab == 1}}">
+          <span bindtap="openDialog">2021年9月</span>
+          <image bindtap="openDialog" style="height:30rpx;width:30rpx;margin-top:6rpx" src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/down1.png"></image>
+        </view> -->
+        <view class="item1" wx:if="{{activeTab == 1}}">
+          <view class="s1" bindtap="openYearDialog">
+            <span>选择年</span>
+            <image style="height:30rpx;width:30rpx;margin-top:8rpx" src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/down1.png"></image>
+          </view>
+          <view class="s1" style="margin-left:40rpx" bindtap="openMonthDialog">
+            <span>选择月</span>
+            <image style="height:30rpx;width:30rpx;margin-top:8rpx;" src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/down1.png"></image>
+          </view>
+          <view class="s1" style="margin-left:40rpx" bindtap="openDateDialog">
+            <span>选择日</span>
+            <image style="height:30rpx;width:30rpx;margin-top:8rpx" src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/down1.png"></image>
+          </view>
+        </view>
+      </mp-sticky>
+    </view>
+    <!-- 选择 -->
+    <mp-actionSheet bindactiontap="btnClick" show="{{showDialog}}" actions="{{groups}}" title="请选择月份">
+        <view slot="{{'actionSlot' + '1'}}" class="custom-action">
+            <view class="custom-action_desc">前往图中包含的小程序：</view>
+            <view class="custom-action_content">
+                <mp-icon icon="qr-code" size="{{20}}"></mp-icon>
+                <text class="custom-action_name">小程序名称</text>
+                <mp-icon icon="arrow" size="{{12}}"></mp-icon>
+            </view>
+        </view>
+    </mp-actionSheet>
+    <!-- 选择单独年 -->
+    <custom-actionSheet bindactiontap="btnClick" show="{{showYearDialog}}" actions="{{groupYear}}" title="请选择年份">
+        <view slot="{{'actionSlot' + '1'}}" class="custom-action">
+            <view class="custom-action_desc">前往图中包含的小程序：</view>
+            <view class="custom-action_content">
+                <mp-icon icon="qr-code" size="{{20}}"></mp-icon>
+                <text class="custom-action_name">小程序名称</text>
+                <mp-icon icon="arrow" size="{{12}}"></mp-icon>
+            </view>
+        </view>
+    </custom-actionSheet>
+    <!-- 选择单独月 -->
+    <custom-actionSheet bindactiontap="btnClick" show="{{showMonthDialog}}" actions="{{groupMonth}}" title="请选择月份">
+        <view slot="{{'actionSlot' + '1'}}" class="custom-action">
+            <view class="custom-action_desc">前往图中包含的小程序：</view>
+            <view class="custom-action_content">
+                <mp-icon icon="qr-code" size="{{20}}"></mp-icon>
+                <text class="custom-action_name">小程序名称</text>
+                <mp-icon icon="arrow" size="{{12}}"></mp-icon>
+            </view>
+        </view>
+    </custom-actionSheet>
+    <!-- 选择单独日 -->
+    <custom-actionSheet bindactiontap="btnClick" show="{{showDateDialog}}" actions="{{groupDate}}" title="请选择天">
+        <view slot="{{'actionSlot' + '1'}}" class="custom-action">
+            <view class="custom-action_desc">前往图中包含的小程序：</view>
+            <view class="custom-action_content">
+                <mp-icon icon="qr-code" size="{{20}}"></mp-icon>
+                <text class="custom-action_name">小程序名称</text>
+                <mp-icon icon="arrow" size="{{12}}"></mp-icon>
+            </view>
+        </view>
+    </custom-actionSheet>
+  </view>
+
+  <view style="height:2000rpx"></view>
+
+</view>
+

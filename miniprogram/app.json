@@ -27,7 +27,9 @@
     "pages/manage/subsidies/add/add",
     "pages/client/recharge/recharge",
     "pages/client/consume/consume",
-    "pages/manage/text/text"
+    "pages/manage/text/text",
+    "pages/manage/dataAnalysis/analysis",
+    "pages/manage/panduct/panduct"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

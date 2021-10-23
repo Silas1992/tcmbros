@@ -1,0 +1,16 @@
+.weui-tabs{width:100%;}
+.weui-tabs-bar__wrp{width:100%;background:#fff}
+.weui-tabs-bar__content{width:100%;white-space:nowrap;display:flex;justify-content: center;}
+.weui-tabs-bar__item{display:inline-block}
+.weui-tabs-bar__title{
+  line-height: 120rpx;
+  display:inline-block;
+  border-bottom-width:2px;
+  border-bottom-style:solid;
+  border-bottom-color:transparent;
+  margin: 0px 10px;
+}
+.tab-bar-title__selected {
+  font-size: 20px;
+  font-weight: bold;
+}

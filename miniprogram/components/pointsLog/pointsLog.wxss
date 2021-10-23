@@ -1,4 +1,4 @@
-
+/* box-shadow:2rpx 2rpx 8rpx 8rpx #eee;*/
 .log{
   background-color: #fff;
   width: 100%;
@@ -6,12 +6,11 @@
   align-self: center;
   margin-top: 20rpx;
   border-radius: 10rpx;
-  box-shadow:2rpx 2rpx 8rpx 8rpx #eee;
   flex-direction: column;
 }
 .log .head{
   display: flex;
-  border-bottom: 1rpx solid rgb(240, 53, 53);
+  border-bottom: 1rpx solid #e1e1e1;
   height: 80rpx;
 }
 .log .head .icon{
@@ -34,7 +33,7 @@
 .log .yearItem .items{
   display: flex;
   flex-direction: column;
-  border-bottom: 1rpx solid rgb(243, 197, 197);
+  border-bottom: 1rpx solid #e1e1e1;
 }
 .log .yearItem .items .item{
   width: 94%;

@@ -170,7 +170,7 @@
     url="../manage/income/income">
       <view class="top">
         <image class="icon"
-        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/details.png"></image>
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/infowork.png"></image>
         <view class="left">收益详单</view>
         <image class="right" 
         src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
@@ -263,6 +263,19 @@
         <image class="icon"
         src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/vip-manage.png"></image>
         <view class="left">会员管理</view>
+        <image class="right" 
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
+        </image>
+      </view>
+      <view class="bottom"/>
+    </navigator>
+    <navigator class="item"
+    wx:if="{{memberInfo.isManage && memberInfo.position == 3}}"  
+    url="../manage/vip/vip">
+      <view class="top">
+        <image class="icon"
+        src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/details.png"></image>
+        <view class="left">数据分析</view>
         <image class="right" 
         src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/right.png">
         </image>

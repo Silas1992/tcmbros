@@ -1,21 +1,26 @@
 <!--miniprogram/pages/client/consume/consume.wxml-->
+<scroll-view scroll-y="true" style='height:calc(100vh - 20rpx)' 
+scroll-with-animation="true">
 <view id="demo1" class="mall-list">
-<view class="member_card">
-<view class="module_2">
-  <view class="value-card" wx:if="{{!haveRecord}}">
-  <image class="image" 
-  src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/background-icon/nocard.png"></image>
-  <view class="explain">暂无消费记录</view>
+  <view class="member_card">
+  
+    <view class="module_2">
+    <view class="value-card" wx:if="{{!haveRecord}}">
+    <image class="image" 
+    src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/background-icon/nocard.png"></image>
+    <view class="explain">暂无消费记录</view>
+    </view>
+    
+    <view class="bottom_2" wx:if="{{haveRecord}}">
+        <view class="consum_record">
+          <image src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/vir-record.png" class="icon"></image>
+          <view class="title">消费记录</view>
+        </view>
+        <pointsLog wx:if="{{cardRecord.length !== 0}}" cardRecord="{{cardRecord}}"></pointsLog>
+    </view>
+    <view style="height:60rpx"></view>
+    
+    </view>
   </view>
-
-  <view class="bottom_2" wx:if="{{haveRecord}}">
-  <view class="consum_record">
-    <image src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/vir-record.png" class="icon"></image>
-    <view class="title">消费记录</view>
-  </view>
-  <pointsLog wx:if="{{cardRecord.length !== 0}}" cardRecord="{{cardRecord}}"></pointsLog>
-  </view>
-  <view style="height:60rpx"></view>
 </view>
-</view>
-</view>
+</scroll-view>

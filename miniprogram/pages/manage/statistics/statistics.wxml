@@ -9,7 +9,7 @@
     <view class="second-line" wx:if="{{custom}}">
       <picker mode="date" value="{{startDate}}" start="2021-03-06" bindchange="bindStartDateChange">
         <view wx:if="{{startDate==0}}" class="start">开始日期
-        <image class="img" src="cloud://release-eut65.7265-release-eut65-1302731086/system-icon/down.png"></image>
+        <image class="img" src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/down.png"></image>
         </view>
         <view class="start" wx:if="{{startDate!=0}}">{{startDate}}</view>
       </picker>

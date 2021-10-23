@@ -81,6 +81,18 @@
         {
           "name": "个人中心",
           "pathName": "pages/person/person",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "总账统计",
+          "pathName": "pages/manage/dataAnalysis/analysis",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "总览",
+          "pathName": "pages/manage/panduct/panduct",
           "scene": null
         }
       ]

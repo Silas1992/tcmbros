@@ -47,7 +47,8 @@ exports.main = async (event, context) => {
       year:year,
       month:month,
       date:day,
-      targetTime:targetTime
+      targetTime:targetTime,
+      sub_id:event.sub_id
     }
   })
   

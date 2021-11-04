@@ -131,6 +131,14 @@
   padding-bottom: 20rpx;
   flex-direction: row;
   flex-wrap: wrap;
+  background-color: white;
+}
+.expend{
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: goldenrod;
 }
 .employee{
   height: 80rpx;
@@ -163,8 +171,8 @@ button{
   color: var(--weui-FG-0) !important;
 }
 .mytabs{
-  margin-top: 50rpx;
   align-self: center;
+
 }
 
 /* 月份选择 */

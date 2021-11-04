@@ -40,7 +40,7 @@ exports.main = async (event, context) => {
       member_name:'',
       member_tel:'',
       type:2,
-      state:2,
+      state:1,
       note:event.note,
       create_time:currentTime,
       update_time:currentTime,

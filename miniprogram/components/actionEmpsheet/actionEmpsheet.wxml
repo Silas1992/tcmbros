@@ -1,4 +1,4 @@
-<!--components/actionsdatesheet/actionsdatesheet.wxml-->
+<!--components/actionmonthsheet/actionmonthsheet.wxml-->
 <wxs module="utils">
     var join = function(a,b) {
         return a+b
@@ -20,17 +20,17 @@
         </view>
     </block>
     <slot name="title" wx:else/>
-    <scroll-view scroll-y="true" style="height:600rpx"
+    <scroll-view scroll-y="true" 
         id="scroll-id" scroll-with-animation="true">
         <view class="scrollItem">
             <view class="box">
                 <view  class="months" 
-                wx:key="index" wx:for-item="actionItem" wx:for="{{actions}}">
-                    <view class="monthItem {{actionItem === curDay ? 'months_selected' : 'months_no_selected' }}" 
-                    data-groupindex="{{actionItem}}"
+                wx:key="index" wx:for-item="actionItem"  wx:for="{{actions}}">
+                    <view class="monthItem {{actionItem === curEmp ? 'months_selected' : 'months_no_selected' }}" 
+                    data-groupindex="{{actionItem.tel}}"
                     hover-class="weui-active"
-                    data-value="{{actionItem}}" bindtap="buttonTap">
-                        {{actionItem}}日
+                    data-value="{{actionItem.name}}" bindtap="buttonTap">
+                        {{actionItem.name}}
                     </view>
                 </view>
             </view>

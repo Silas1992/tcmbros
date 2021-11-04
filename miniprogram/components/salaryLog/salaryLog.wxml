@@ -1,0 +1,38 @@
+<!--components/salaryLog/salaryLog.wxml-->
+
+<!-- wx:for="{{}}" wx:key="index" wx:key-index="idx" -->
+<view class="log">
+  <view class="yearItem" >
+    <view class="items" wx:for="{{salaryRecord}}" wx:key="index" >
+      <view class="item">
+        <view class="left">
+          <view class="type">{{item.de_type}}</view>
+          <view class="creat-time">{{item.create_time}}</view>
+        </view>
+        <view class="change-points">
+          <view class="member">
+            <text style="margin-left:20rpx">完成人员：{{item.employee}}</text>
+          </view>
+          <view wx:if="{{item.state == 2}}"
+          class="money">+{{item.price}}
+          <text style="color:gray;margin-left:10rpx">余额：{{item.memberBalance}}</text>
+          </view>
+          <view wx:elif="{{item.state == 1 && item.goods_type !== 6}}"
+          class="money">-{{item.price}}
+          <!-- <text style="color:gray;margin-left:10rpx">余额：{{item.memberBalance}}</text> -->
+          </view>
+          <view wx:else
+          class="money">
+          <text style="color:gray;margin-left:10rpx">{{item.pay_type}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="remark" wx:if="{{item.note !== '' && item.note !== undefined}}">
+        备注：{{item.note}}
+      </view>
+      <view wx:else class="remark">
+        备注：无
+      </view>
+    </view>
+  </view>
+</view>

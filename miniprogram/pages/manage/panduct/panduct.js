@@ -1,5 +1,6 @@
 // miniprogram/pages/manage/panduct/panduct.js
 var TIME = require('../../../util/util.js');
+const RECORDS = require('../../../util/deductRecord.js');
 Page({
 
   /**
@@ -25,50 +26,190 @@ Page({
     showDateDialog:false,
     showMonthDialog:false,
     showYearDialog:false,
-    groupMonth:[
-      {value:1},{value:2},{value:3},{value:4},{value:5},{value:6},
-      {value:7},{value:8},{value:9},{value:10},{value:11},{value:12},
-    ],
-    groupYear:[
-      {value:2021},{value:2022},{value:2023},{value:2024},{value:2025},
-      {value:2026},{value:2027},{value:2028},{value:2029},{value:2030},
-    ],
-    groupDate:[],
-    groups: [
-      { 
-        year:2021,
-        months: [
-          { text: '7月', value: 7 },
-          { text: '8月', value: 8 },
-          { text: '9月', value: 9 },
-          { text: '10月', value: 10 },
-          { text: '11月', type: 'warn', value: 11 }
-        ]
-      },
-      { 
-        year:2020,
-        months:[
-          { text: '9月', value: 9 },
-          { text: '10月', value: 10 },
-          { text: '11月', value: 11 }
-        ]
-      },
-      { 
-        year:2019,
-        months:[
-          { text: '9月', value: 9 },
-          { text: '10月', value: 10 },
-          { text: '11月', value: 11 }
-        ]
-      }
-        
-    ],
+    showEmployeeDialog:false,
+    //日历
+    calendarMonths:[1,2,3,4,5,6,7,8,9,10,11,12],
+    calendarYears:[2021,2022,2023,2024,2025,2026,2027,2028,2029],
+    calendarDays:[],
+    curYear:0,
+    curMonth:0,
+    curDay:0,
+    expendTotal:0,
 
     haveRecord:false,//是否有记录
     record:[],//记录集合
     newRecord:[],//转换后的集合
+
     employees:[],//本店员工集合
     selectedName:'',//选择的会员
+    curEmployee:'',
+
+    pagesize: 10,
+    page: 0,
+    keyword: '',
+    islast: false,
+    salaryRecord:[],
+    selectedYears:0,//选在某一年
+    selectedMonth:0,//选择某一月
+    selectedDay:0,//选择某一天
+  },
+  // 打开选择
+  openDialog: function () {
+    this.setData({
+        showDialog: true
+    })
+    console.log('来了来了')
+  },
+  openEmployeeDialog(){
+    this.setData({
+      showEmployeeDialog:true
+    })
+  },
+  //打开年选择
+  openYearDialog: function () {
+    this.setData({
+        showYearDialog: true
+    })
+  },
+  //打开月选择
+  openMonthDialog: function () {
+    let year = this.data.curYear
+    if(year !== 0){
+      this.setData({
+          showMonthDialog: true
+      })
+    }else{
+      wx.showToast({
+        icon:'none',
+        title: '请先选择年再选择日',
+      })
+    } 
+  },
+  //计算天数
+  getDays(year,month){
+    let dayNum = new Date(year,month,0)
+    return dayNum.getDate()
+  },
+  //打开日选择
+  openDateDialog: function () {
+    let year = this.data.curYear
+    let month = this.data.curMonth
+    if(year !== 0 && month !== 0){
+      //计算日历
+      let dayNum = this.getDays(year,month)
+      let days = [] 
+      for(let i=1;i<=dayNum;i++){
+        days.push(i);
+      }
+      console.log('得到的天数集合为',days)
+      this.setData({
+        calendarDays:days
+      })
+      this.setData({
+        showDateDialog: true
+      })
+    }else{
+      wx.showToast({
+        icon:'none',
+        title: '请先选择年月再选择日',
+      })
+    }
+    
+  },
+
+  closeDialog: function () {
+    this.setData({
+      salaryRecord: [],
+    })
+    //确定后遍历该条件的支出记录
+    this.getRecord()
+  },
+  //获取当前总支出
+  getRecordTotal(){
+    const that = this
+    let curEmployee = this.data.curEmployee
+    let year = this.data.curYear
+    let month = this.data.curMonth
+    let day = this.data.curDay
+    let state = 1
+    wx.cloud.callFunction({
+      name:"getDeductTotal",
+      data:{
+        state:state,
+        curEmployee:curEmployee,
+        year:year,
+        month:month,
+        day:day
+      },
+      complete:res =>{
+        console.log('获取到的结果为',res.result)
+        if(res.result.length !== 0){
+          let total = res.result[0].totalMoney
+          that.setData({
+            expendTotal:total
+          })
+        }else{
+          that.setData({
+            expendTotal:0
+          })
+        }
+      }
+    })
+  },
+  //获取员工支出
+  getRecord() {
+    const that = this
+    let pagesize = this.data.pagesize
+    let page = this.data.page
+    let title = this.data.keyword
+    let curEmployee = this.data.curEmployee
+    let year = this.data.curYear
+    let month = this.data.curMonth
+    let day = this.data.curDay
+    let state = 1
+    wx.showLoading({
+      title: '加载中',
+    })
+    RECORDS.list({
+      pagesize,
+      page,
+      title,
+      state,
+      curEmployee,
+      year,
+      month,
+      day
+    }).then(res => {
+      console.log(res)
+      if (res.length < pagesize) {
+        that.setData({
+          tip: '全部数据',
+          loading: false,
+          next: false,
+          islast: true,
+        })
+      }
+      let list = that.data.salaryRecord;
+      list = list.concat(res);
+      that.setData({
+        next: false,
+        salaryRecord: list,
+      })
+      //获取总支出
+      this.getRecordTotal()
+      console.log("来了这个支出记录",list)
+      wx.hideLoading({
+        complete: (res) => {},
+      })
+    })
+  },
+  //重新获取员工支出
+  reloadtable() {
+    this.setData({
+      page: 0,
+      salaryRecord: []
+    })
+    this.getRecord()
   },
   //将记录转化成年月日的格式
   updage:function(){
@@ -168,7 +309,11 @@ Page({
     this.setData({ 
       activeTab: index,
       selectedIn:1,
-      selectedName:''
+      selectedName:'',
+      curYear:0,
+      curMonth:0,
+      curDay:0,
+      curEmployee:''
     })
   },
   //切换大菜单
@@ -177,7 +322,11 @@ Page({
     this.setData({ 
       activeTab: index,
       selectedIn:1,
-      selectedName:''
+      selectedName:'',
+      curYear:0,
+      curMonth:0,
+      curDay:0,
+      curEmployee:''
     })
   },
   //选择小按钮
@@ -197,40 +346,42 @@ Page({
     console.log('来了来了')
     this.selectRecRecord() 
   },
-  // 打开选择
-  openDialog: function () {
-      this.setData({
-          showDialog: true
-      })
-      console.log('来了来了')
-  },
-  //打开年选择
-  openYearDialog: function () {
+  btnEmpClick(e){
     this.setData({
-        showYearDialog: true
+      curEmployee:e.detail.value,
+      showEmployeeDialog: false
     })
+    console.log('当前选择的员工是',e.detail.value)
+    this.closeDialog()
   },
-  //打开月选择
-  openMonthDialog: function () {
+  btnYearClick(e) {
     this.setData({
-        showMonthDialog: true
+      curYear:e.detail.value
     })
-  },
-  //打开日选择
-  openDateDialog: function () {
+    
     this.setData({
-        showDateDialog: true
+      showYearDialog: false
     })
+    this.closeDialog()
   },
-
-  closeDialog: function () {
-      this.setData({
-          showDialog: false
-      })
+  btnMonthClick(e) {
+    console.log(e)
+    this.setData({
+      curMonth:e.detail.value
+    })
+    
+    this.setData({
+      showMonthDialog: false
+  })
+    this.closeDialog()
   },
-  btnClick(e) {
-      console.log(e)
-      this.closeDialog()
+  btnDayClick(e) {
+    console.log(e)
+    this.setData({
+      curDay:e.detail.value,
+      showDateDialog:false
+    })
+    this.closeDialog()
   },
 
   handleSelect(){
@@ -724,7 +875,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.reloadtable();
   },
 
   /**
@@ -740,20 +891,30 @@ Page({
   onUnload: function () {
 
   },
-
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    wx.stopPullDownRefresh();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log('触底了')
+    if (this.data.islast) return;
+    var page = this.data.page + 1;
+    console.log('当前的页面是',page)
+    this.setData({
+      next: true,
+      page: page
+    })
+    this.getRecord(page)
   },
+
+
+ 
 
   /**
    * 用户点击右上角分享

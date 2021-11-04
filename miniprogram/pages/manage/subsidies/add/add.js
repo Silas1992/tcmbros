@@ -94,6 +94,26 @@ Page({
         success: (res) => {},
       }) 
       return;
+    }else{
+      wx.cloud.callFunction({
+        name:"addSubsidies",
+        data:{
+          name:this.data.name,
+          type:picker[index],
+          money:money,
+          note:note,
+          sub_id:this.data.member.sub_id
+        },
+        complete:res =>{
+          //授权成功后，修改会员表中的字段为是管理员
+          wx.hideLoading({
+            success: (res) => {
+              //返回上一级
+              wx.navigateBack({delata:1})
+            },
+          })
+        }
+      })
     }
     if(money==0||index==null||note==''){
       this.setData(
@@ -106,26 +126,6 @@ Page({
       return;  
     }
     
-
-    wx.cloud.callFunction({
-      name:"addSubsidies",
-      data:{
-        name:this.data.name,
-        type:picker[index],
-        money:money,
-        note:note
-      },
-      complete:res =>{
-        //授权成功后，修改会员表中的字段为是管理员
-        wx.hideLoading({
-          success: (res) => {
-            //返回上一级
-            wx.navigateBack({delata:1})
-          },
-        })
-      }
-    })
-
   },
   //查询会员是否存在
   selectMember:function(){

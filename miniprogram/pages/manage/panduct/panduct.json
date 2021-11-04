@@ -2,8 +2,11 @@
   "usingComponents": {
     "mp-tabs": "../../../components/tab/tab",
     "mp-sticky": "../../../components/sticky/sticky",
-    "mp-actionSheet": "weui-miniprogram/actionsheet/actionsheet",
-    "custom-actionSheet":"../../../components/actionsdatesheet/actionsdatesheet",
-    "pointsLog":"../../../components/pointsLog/pointsLog"
+    "pointsLog":"../../../components/pointsLog/pointsLog",
+    "emp-actionSheet":"../../../components/actionEmpsheet/actionEmpsheet",
+    "month-actionSheet":"../../../components/actionmonthsheet/actionmonthsheet",
+    "year-actionSheet":"../../../components/actionyearsheet/actionyearsheet",
+    "custom-actionSheet":"/components/actionsdatesheet/actionsdatesheet",
+    "salaryLog":"/components/salaryLog/salaryLog"
   }
 }

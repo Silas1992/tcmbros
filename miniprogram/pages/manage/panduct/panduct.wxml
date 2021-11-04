@@ -87,7 +87,7 @@
     </view>
     <!-- 导航 -->
     <view class="demo-body">
-      <mp-sticky bindscroll="onScroll">
+      <mp-sticky bindscroll="onScroll" >
         <mp-tabs 
           tabs="{{tabs}}" 
           activeTab="{{activeTab}}" 
@@ -107,40 +107,59 @@
           style="background-color: {{selectedIn === 2 ? '#f2f2f2' : '#f2f2f2' }}"
           bindtap="selectBtn" data-id="2">散客收入</button>
         </view>
-        <view class="pslog-box" wx:if="{{activeTab == 0}}">
-          <pointsLog class="pslog"  wx:if="{{record.length !== 0}}" newRecord="{{newRecord}}"></pointsLog>
-        </view>
         
         
         <view class="item" wx:if="{{activeTab == 1}}" >
-          <block wx:for="{{employees}}" wx:key="index">
+          <!-- <block wx:for="{{employees}}" wx:key="index">
             <button class="employee"  type="{{selectedName == item.name ? 'default':default}}" 
             style="background-color: {{selectedName === item.name ? '#f2f2f2' : '#f2f2f2' }}"
             bindtap="selectBtn" data-name="{{item.name}}">{{item.name}}</button>
-          </block>
+          </block> -->
+          <view class="expend">
+            <view>支出：{{expendTotal}}</view>
+          </view>
         </view>
         <!-- <view class="item1" wx:if="{{activeTab == 1}}">
           <span bindtap="openDialog">2021年9月</span>
           <image bindtap="openDialog" style="height:30rpx;width:30rpx;margin-top:6rpx" src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/down1.png"></image>
         </view> -->
         <view class="item1" wx:if="{{activeTab == 1}}">
-          <view class="s1" bindtap="openYearDialog">
-            <span>选择年</span>
-            <image style="height:30rpx;width:30rpx;margin-top:8rpx" src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/down1.png"></image>
+          <view class="s1" bindtap="openEmployeeDialog">
+            <span wx:if="{{curEmployee == ''}}">选择员工</span>
+            <image wx:if="{{curEmployee == ''}}" style="height:30rpx;width:30rpx;margin-top:8rpx" 
+            src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/down1.png"></image>
+            <span wx:else>{{curEmployee}}</span>
+          </view>
+          <view class="s1"  style="margin-left:40rpx" bindtap="openYearDialog">
+            <span wx:if="{{curYear == 0}}">选择年</span>
+            <image wx:if="{{curYear == 0}}" style="height:30rpx;width:30rpx;margin-top:8rpx" 
+            src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/down1.png"></image>
+            <span wx:else>{{curYear}}年</span>
           </view>
           <view class="s1" style="margin-left:40rpx" bindtap="openMonthDialog">
-            <span>选择月</span>
-            <image style="height:30rpx;width:30rpx;margin-top:8rpx;" src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/down1.png"></image>
+            <span wx:if="{{curMonth == 0}}">选择月</span>
+            <image wx:if="{{curMonth == 0}}" style="height:30rpx;width:30rpx;margin-top:8rpx;" 
+            src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/down1.png"></image>
+            <span wx:else>{{curMonth}}月</span>
           </view>
           <view class="s1" style="margin-left:40rpx" bindtap="openDateDialog">
-            <span>选择日</span>
-            <image style="height:30rpx;width:30rpx;margin-top:8rpx" src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/down1.png"></image>
+            <span wx:if="{{curDay == 0}}">选择日</span>
+            <image wx:if="{{curDay == 0}}" style="height:30rpx;width:30rpx;margin-top:8rpx" 
+            src="cloud://cloud1-9gt8jfexd120c4fc.636c-cloud1-9gt8jfexd120c4fc-1305344111/system-icon/down1.png"></image>
+            <span wx:else>{{curDay}}日</span>
           </view>
         </view>
       </mp-sticky>
     </view>
+    
+    <view class="pslog-box" wx:if="{{activeTab == 0}}">
+      <pointsLog class="pslog"  wx:if="{{record.length !== 0}}" newRecord="{{newRecord}}"></pointsLog>
+    </view>
+    <view class="pslog-box" wx:if="{{activeTab == 1}}">
+      <salaryLog class="pslog"  wx:if="{{salaryRecord.length !== 0}}" salaryRecord="{{salaryRecord}}"></salaryLog>
+    </view>
     <!-- 选择 -->
-    <mp-actionSheet bindactiontap="btnClick" show="{{showDialog}}" actions="{{groups}}" title="请选择月份">
+    <!-- <mp-actionSheet bindactiontap="btnClick" show="{{showMonthDialog}}" actions="{{calendarMonths}}" title="请选择月份">
         <view slot="{{'actionSlot' + '1'}}" class="custom-action">
             <view class="custom-action_desc">前往图中包含的小程序：</view>
             <view class="custom-action_content">
@@ -149,9 +168,9 @@
                 <mp-icon icon="arrow" size="{{12}}"></mp-icon>
             </view>
         </view>
-    </mp-actionSheet>
+    </mp-actionSheet> -->
     <!-- 选择单独年 -->
-    <custom-actionSheet bindactiontap="btnClick" show="{{showYearDialog}}" actions="{{groupYear}}" title="请选择年份">
+    <year-actionSheet bindactiontap="btnYearClick" show="{{showYearDialog}}" curYear="{{curYear}}" actions="{{calendarYears}}" title="请选择年份">
         <view slot="{{'actionSlot' + '1'}}" class="custom-action">
             <view class="custom-action_desc">前往图中包含的小程序：</view>
             <view class="custom-action_content">
@@ -160,9 +179,9 @@
                 <mp-icon icon="arrow" size="{{12}}"></mp-icon>
             </view>
         </view>
-    </custom-actionSheet>
+    </year-actionSheet>
     <!-- 选择单独月 -->
-    <custom-actionSheet bindactiontap="btnClick" show="{{showMonthDialog}}" actions="{{groupMonth}}" title="请选择月份">
+    <month-actionSheet bindactiontap="btnMonthClick" show="{{showMonthDialog}}" actions="{{calendarMonths}}" title="请选择月份">
         <view slot="{{'actionSlot' + '1'}}" class="custom-action">
             <view class="custom-action_desc">前往图中包含的小程序：</view>
             <view class="custom-action_content">
@@ -171,9 +190,9 @@
                 <mp-icon icon="arrow" size="{{12}}"></mp-icon>
             </view>
         </view>
-    </custom-actionSheet>
+    </month-actionSheet>
     <!-- 选择单独日 -->
-    <custom-actionSheet bindactiontap="btnClick" show="{{showDateDialog}}" actions="{{groupDate}}" title="请选择天">
+    <custom-actionSheet bindactiontap="btnDayClick" show="{{showDateDialog}}" actions="{{calendarDays}}" title="请选择天">
         <view slot="{{'actionSlot' + '1'}}" class="custom-action">
             <view class="custom-action_desc">前往图中包含的小程序：</view>
             <view class="custom-action_content">
@@ -183,9 +202,19 @@
             </view>
         </view>
     </custom-actionSheet>
+    <!-- 选择员工 -->
+    <emp-actionSheet bindactiontap="btnEmpClick" show="{{showEmployeeDialog}}" curEmployee="{{curEmployee}}" actions="{{employees}}" title="请选择员工">
+        <view slot="{{'actionSlot' + '1'}}" class="custom-action">
+            <view class="custom-action_desc">前往图中包含的小程序：</view>
+            <view class="custom-action_content">
+                <mp-icon icon="qr-code" size="{{20}}"></mp-icon>
+                <text class="custom-action_name">小程序名称</text>
+                <mp-icon icon="arrow" size="{{12}}"></mp-icon>
+            </view>
+        </view>
+    </emp-actionSheet>
   </view>
 
-  <view style="height:2000rpx"></view>
 
 </view>
 

@@ -1,5 +1,5 @@
 var globalThis=this,self=this;
-module.exports=require("../_commons/1.js")
+module.exports=require("../_commons/3.js")
 ([
   {ids:[1],
     modules:{1:function(e,t,a){e.exports=a(41)},41:function(e,t){
@@ -14,7 +14,7 @@ module.exports=require("../_commons/1.js")
       maskClosable:{type:Boolean,value:!0},
       mask:{type:Boolean,value:!0},
       show:{type:Boolean,value:!1},
-      curDay:{type:Number,value:0},
+      curEmp:{type:String,value:""},
       actions:{type:Array,value:[],
       observer:"_groupChange"}},
         methods:{
@@ -23,7 +23,7 @@ module.exports=require("../_commons/1.js")
           buttonTap:function(e){
             var t=e.currentTarget.dataset,a=t.value,o=t.groupindex,s=t.index;
             this.setData({
-              curDay:a
+              curEmp:a
             })
             this.triggerEvent("actiontap",{value:a,groupindex:o,index:s})
           },
